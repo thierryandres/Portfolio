@@ -3,46 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über mich</title>
+    <meta name="description" content="Lerne Thierry Andres kennen – Informatiker in Ausbildung, lösungsorientiert und teamfähig.">
+    <title>Über mich – Thierry Andres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="nav-container">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">TA</span>
+                <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
+            </a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation öffnen</span>
+            </button>
+            <nav class="main-nav" id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="ueber_mich.html" aria-current="page">Über mich</a></li>
+                    <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                    <li><a href="diplome.html">Diplome</a></li>
+                    <li><a href="hobbys.html">Hobbys</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<main>
-    <h1>Über mich</h1>
-    <p>Hallo, ich bin Thierry Andres, 16 Jahre alt und lebe in Roggwil BE 📍. Ich mache eine Ausbildung als Informatiker Applikationsentwicklung bei Bystronic. Technik begeistert mich, und ich liebe es, kreative Lösungen zu finden.
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="section-eyebrow">Über mich</p>
+                <h1>Thierry Andres – motiviert, neugierig und lösungsorientiert</h1>
+                <p>Ich bin 16 Jahre jung, komme aus Roggwil BE 📍 und absolviere derzeit die Lehre als Informatiker Applikationsentwicklung bei Bystronic. Neues Wissen anzueignen, es direkt anzuwenden und gemeinsam im Team nutzbringende Lösungen zu schaffen, macht mir besonders Spass.</p>
+                <ul class="list">
+                    <li><strong>Ausbildung:</strong> Informatiker EFZ, Fachrichtung Applikationsentwicklung</li>
+                    <li><strong>Arbeitsweise:</strong> strukturiert, kommunikativ und mit Blick fürs Detail</li>
+                    <li><strong>Charakter:</strong> humorvoll, sportlich und immer offen für Neues</li>
+                </ul>
+            </div>
+            <div class="hero-media">
+                <img src="img/Andres_Thierry_Portrait.jpg" alt="Portrait von Thierry Andres">
+            </div>
+        </section>
 
-        Ich bin sportlich, humorvoll und immer offen für Neues. Herausforderungen nehme ich mit Spass und Energie an – mit mir wird es nie langweilig! 😃</p>
-    <img src="img/Andres_Thierry_Portrait.jpg" alt="Portrait Thierry Andres" width="400" height="600">
-</main>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Werte &amp; Motivation</span>
+                <h2 class="section-title">Was mir im Alltag wichtig ist</h2>
+                <p class="section-description">Mein Ziel ist es, Verantwortung zu übernehmen, Lösungen zu vereinfachen und ein Umfeld zu schaffen, das Vertrauen gibt. Drei Bereiche prägen meinen Alltag besonders.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <h2>Verlässlichkeit</h2>
+                    <p>Ich halte Zusagen ein, melde mich frühzeitig und arbeite so, dass andere auf mich zählen können.</p>
+                </article>
+                <article class="card">
+                    <h2>Kreative Lösungen</h2>
+                    <p>Ob im Projekt oder im privaten Umfeld – ich suche aktiv nach Wegen, die Aufgaben einfacher und nutzerfreundlicher machen.</p>
+                </article>
+                <article class="card">
+                    <h2>Gemeinschaft</h2>
+                    <p>Teamarbeit spornt mich an. Ich höre zu, teile mein Wissen und feiere gemeinsame Erfolge.</p>
+                </article>
+            </div>
+        </section>
+    </main>
 
-<footer>
-    <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+    <footer>
+        <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>

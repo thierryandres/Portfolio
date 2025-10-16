@@ -3,50 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diplome</title>
+    <meta name="description" content="Diplome und Zertifikate von Thierry Andres als übersichtliche Timeline.">
+    <title>Diplome – Thierry Andres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="nav-container">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">TA</span>
+                <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
+            </a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation öffnen</span>
+            </button>
+            <nav class="main-nav" id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="ueber_mich.html">Über mich</a></li>
+                    <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                    <li><a href="diplome.html" aria-current="page">Diplome</a></li>
+                    <li><a href="hobbys.html">Hobbys</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<main>
-    <h1>Diplome📝</h1>
-    <ul>
-        <li>Theorieprüfung Auto – Bestanden, Jahr 2024</li>
-        <li>Traktorprüfung G40 - Bestanden, Jahr 2023</li>
-        <li>Sekundarschulabschluss – Thierry Andres 2024</li>
-        <li>Drohnenprüfung – Zertifikat für Drohnenführung</li>
-        <li>Informatiker EFZ (Applikationsentwicklung) – In Ausbildung bei Bystronic, seit 2024</li>
+    <main>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Erfolge</span>
+                <h1 class="section-title">Meilensteine &amp; Zertifikate</h1>
+                <p class="section-description">Die Timeline zeigt, welche Schritte mich geprägt haben und woran ich aktuell arbeite.</p>
+            </div>
+            <ol class="timeline">
+                <li>
+                    <time datetime="2024">2024 · Theorieprüfung Auto</time>
+                    <p>Erfolgreich bestanden – der nächste Schritt Richtung Mobilität und Selbstständigkeit.</p>
+                </li>
+                <li>
+                    <time datetime="2023">2023 · Traktorprüfung G40</time>
+                    <p>Praxisnahes Fahren, Verantwortung übernehmen und Sicherheit im Strassenverkehr beweisen.</p>
+                </li>
+                <li>
+                    <time datetime="2024-07">2024 · Sekundarschulabschluss</time>
+                    <p>Abschluss in Roggwil, der den Start in die ICT-Lehre ermöglicht hat.</p>
+                </li>
+                <li>
+                    <time datetime="2024-08">Seit 2024 · Informatiker EFZ</time>
+                    <p>Lehre bei Bystronic mit Fokus auf <span class="highlight">Applikationsentwicklung</span>.</p>
+                </li>
+                <li>
+                    <time datetime="2022">2022 · Drohnenprüfung</time>
+                    <p>Zertifizierte Kenntnisse im sicheren Umgang mit Drohnen und Luftaufnahmen.</p>
+                </li>
+            </ol>
+        </section>
 
-    </ul>
-</main>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Ausblick</span>
+                <h2 class="section-title">Woran ich als Nächstes arbeite</h2>
+                <p class="section-description">Diplome sind für mich Zwischenstationen. Die nächsten Schritte habe ich bereits geplant.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <h2>Berufsschule</h2>
+                    <p>Gute Noten halten und praxisnahe Projekte in die Schulwelt tragen.</p>
+                </article>
+                <article class="card">
+                    <h2>Zertifikate</h2>
+                    <p>Cloud- und Web-Technologien vertiefen, z.&nbsp;B. durch erste Online-Zertifizierungen.</p>
+                </article>
+                <article class="card">
+                    <h2>Fahrpraxis</h2>
+                    <p>Praktische Fahrstunden absolvieren und den Führerausweis Schritt für Schritt vorbereiten.</p>
+                </article>
+            </div>
+        </section>
+    </main>
 
-<footer>
-    <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+    <footer>
+        <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>

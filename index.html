@@ -3,45 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio von Thierry Andres – angehender Informatiker Applikationsentwicklung, Motorradfan und Technik-Enthusiast.">
   <title>Portfolio Thierry Andres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-  <div class="nav-container">
-    <button class="burger">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="ueber_mich.html">Über mich</a></li>
-        <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-        <li><a href="diplome.html">Diplome</a></li>
-        <li><a href="hobbys.html">Hobbys</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">TA</span>
+        <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
+      </a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Navigation öffnen</span>
+      </button>
+      <nav class="main-nav" id="primary-navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Startseite</a></li>
+          <li><a href="ueber_mich.html">Über mich</a></li>
+          <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+          <li><a href="diplome.html">Diplome</a></li>
+          <li><a href="hobbys.html">Hobbys</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      </ul>
-    </nav>
-  </div>
-</header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="section-eyebrow">Hallo, ich bin Thierry</p>
+        <h1>In Ausbildung zum Informatiker und neugierig auf jede Herausforderung</h1>
+        <p>Ich entwickle digitale Lösungen, entdecke gerne neue Technologien und liebe es, wenn Ideen zu funktionierenden Anwendungen werden. Auf dieser Seite findest du meine wichtigsten Stationen, Fähigkeiten und was mich neben dem Beruf begeistert.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="ueber_mich.html">Mehr über mich</a>
+          <a class="btn btn-outline" href="kontakt.html">Kontakt aufnehmen</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="img/Motorradmitthierry.JPEG" alt="Thierry Andres auf dem Motorrad">
+      </div>
+    </section>
 
-<main>
-  <h1>Willkommen auf meinem Portfolio</h1>
-  <p>Hier erfährst du mehr über mich, meine Hobbys, Fähigkeiten und wie du mich kontaktieren kannst.😊</p>
-  <img src="img/Motorradmitthierry.JPEG" alt="Motorrad" width="428" height="571">
-</main>
+    <section class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">Portfolio Überblick</span>
+        <h2 class="section-title">Was dich auf dieser Webseite erwartet</h2>
+        <p class="section-description">Mein Portfolio verbindet Schule, Beruf und Freizeit zu einem stimmigen Gesamtbild. Jede Seite ist im gleichen Design aufgebaut und zeigt dir auf einen Blick, wer ich bin und wofür ich brenne.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h2>Über mich</h2>
+          <p>Meine Geschichte, was mich motiviert und wie ich Probleme strukturiert löse. <a href="ueber_mich.html">Zum Portrait</a></p>
+        </article>
+        <article class="card">
+          <h2>Fähigkeiten</h2>
+          <p>Technik, Sprachen und Soft Skills – sauber nach Bereichen gegliedert. <a href="faehigkeiten.html">Zu den Skills</a></p>
+        </article>
+        <article class="card">
+          <h2>Diplome</h2>
+          <p>Erfolge aus Schule, Fahrausbildung und Beruf in einer Timeline. <a href="diplome.html">Zu den Diplomen</a></p>
+        </article>
+        <article class="card">
+          <h2>Hobbys</h2>
+          <p>Was mich ausserhalb des Bildschirms antreibt und ausgleicht. <a href="hobbys.html">Zu den Hobbys</a></p>
+        </article>
+      </div>
+    </section>
 
-<footer>
-  <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
+    <section class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">Aktuelle Ziele</span>
+        <h2 class="section-title">Das habe ich mir für 2025 vorgenommen</h2>
+        <p class="section-description">Ich arbeite zielgerichtet und überprüfe regelmässig meinen Fortschritt. Drei Schwerpunkte begleiten mich dieses Jahr besonders.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h2>Praxis vertiefen</h2>
+          <p>Im Lehrbetrieb möchte ich mein Wissen in <span class="highlight">Applikationsentwicklung</span> weiter ausbauen und eigenständig Features implementieren.</p>
+        </article>
+        <article class="card">
+          <h2>Sauber dokumentieren</h2>
+          <p>Klare Konzepte, verständliche Protokolle und aufgeräumter Code sollen meine Projekte noch professioneller machen.</p>
+        </article>
+        <article class="card">
+          <h2>Netzwerk pflegen</h2>
+          <p>Ich nehme aktiv an Ausbildungs- und Community-Events teil, um neue Perspektiven zu gewinnen und Erfahrungen zu teilen.</p>
+        </article>
+      </div>
+    </section>
 
-<script>
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('nav ul');
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-  });
-</script>
+    <section class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">Lass uns zusammenarbeiten</span>
+        <h2 class="section-title">Bereit für ein gemeinsames Projekt?</h2>
+        <p class="section-description">Wenn du Fragen hast oder dir ein Projekt vorschwebt, melde dich gerne. Ich freue mich auf einen Austausch.</p>
+      </div>
+      <div class="hero-actions cta-actions">
+        <a class="btn btn-primary" href="kontakt.html">Nachricht senden</a>
+        <a class="btn btn-outline" href="faehigkeiten.html">Skills entdecken</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+  </footer>
 </body>
 </html>
