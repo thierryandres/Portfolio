@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Thierry Andres</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">Thierry Andres</a>
+        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" data-nav id="primary-navigation">
+            <ul class="nav-list">
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="ueber_mich.html">Ueber mich</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="diplome.html">Diplome</a></li>
+                <li><a href="hobbys.html">Hobbys</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="konzept.html">Konzept</a></li>
+                <li><a href="contact.html" aria-current="page">Kontakt</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="main-content">
+    <section class="section">
+        <h1>Kontakt</h1>
+        <p>Du hast Fragen oder moechtest ein Projekt mit mir besprechen? Das Formular prueft deine Angaben und bestaetigt dir den erfolgreichen Versand direkt auf der Seite.</p>
+        <form id="contact" class="contact-form">
+            <div>
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" minlength="2" required autocomplete="name" placeholder="Vor- und Nachname">
+            </div>
+            <div>
+                <label for="email">E-Mail*</label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="name@example.com">
+            </div>
+            <div>
+                <label for="subject">Betreff*</label>
+                <input type="text" id="subject" name="subject" required placeholder="Worum geht es?">
+            </div>
+            <div>
+                <label for="message">Nachricht*</label>
+                <textarea id="message" name="message" minlength="10" required placeholder="Schreibe hier dein Anliegen"></textarea>
+            </div>
+            <p class="form-message" data-form-message aria-live="polite"></p>
+            <button class="btn" type="submit" aria-label="Nachricht senden">Nachricht senden</button>
+        </form>
+    </section>
+    <section class="section card">
+        <h2>Weitere Kontaktmoeglichkeiten</h2>
+        <p>E-Mail: <a href="mailto:thierry.andres@quickline.ch">thierry.andres@quickline.ch</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/thierry._.andres/" target="_blank" rel="noopener">thierry._.andres</a></p>
+    </section>
+</main>
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+        <div class="footer-nav">
+            <a href="contact.html" aria-current="page">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="konzept.html">Konzept</a>
+        </div>
+    </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
