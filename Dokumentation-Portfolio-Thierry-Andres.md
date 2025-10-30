@@ -1,124 +1,47 @@
 Portfolio-Webseite Thierry Andres
 
 ## Abstract ##
-Meine Portfolio-Webseite ist meine digitale Visitenkarte. Sie zeigt, wer ich bin, was ich kann und
-was mich interessiert. Ich bin Thierry Andres, 16 Jahre alt und gerade im ersten Jahr meiner 
-Informatik-Ausbildung bei Bystronic. Auf der Seite gibt’s Infos über mich, meine Hobbys, Fähigkeiten und 
-Diplome plus ein Kontaktformular, damit man mir schreiben kann. Alles ist responsiv, mit HTML, CSS und JavaScript gebaut 
-und soll zeigen, dass ich technisch was draufhabe und gleichzeitig meine Persönlichkeit rüberbringen.
-
+Meine Portfolio-Webseite ist meine digitale Visitenkarte. Sie zeigt konzentriert, wer ich bin, welche Technologien ich beherrsche und was mich privat antreibt. Ich bin Thierry Andres, 16 Jahre alt und im ersten Lehrjahr meiner Informatik-Ausbildung (Applikationsentwicklung) bei Bystronic. Die Seite buendelt meine wichtigsten Inhalte (Ueber mich, Skills, Diplome, Hobbys, Galerie, Konzept, Kontakt) in einem klar strukturierten, responsiven Frontend auf Basis von HTML, CSS und JavaScript. Ziel ist es, Professionalitaet zu zeigen und gleichzeitig persoenlich zu bleiben.
 
 ## Zielpublikum ##
+Die Seite richtet sich an Menschen, die sich ein Bild von mir machen moechten:
+- **Ausbildner:innen und Vorgesetzte:** schnelles Pruefen von Kompetenzen, Projekten und Kontaktmoeglichkeiten.
+- **Kuenftige Arbeitgeber oder Projektpartner:** Fokus auf Skills, Arbeitsweise und Referenzen.
+- **Freundeskreis und Interessierte:** persoenliche Einblicke in Hobbys und Motivation.
+- **Technik-Community:** Austausch mit Personen, die aehnliche Interessen wie Motorradfahren oder Softwareentwicklung teilen.
 
-Die Webseite ist für Leute gedacht, die mich kennenlernen wollen:
-
-Arbeitgeber oder Projektpartner: IT-Leute, die junge Typen wie mich suchen.
-Freunde und Bekannte: Die, die wissen wollen, was ich so mache.
-Leute mit gleichen Interessen: Zum Beispiel Motorrad-Fans oder Technik-Nerds.
-Alter: Von 16 bis 120 vor allem aber junge Leute (14-30) und Berufstätige (30-60).
-Wann sie draufgehen: Meistens abends oder am Wochenende, weil die meisten dann Zeit haben.
-
-Ich hab auf guten Kontrast geachtet, z.B. weisse Formulare auf dem Farbverlauf, damit auch
-ältere Leute es lesen können. Die Schrift ist gross genug (1.1rem bis 2.5rem) und die Seite läuft 
-auf Handy und PC gleich gut, weil viele abends vom Sofa aus surfen. Sie soll modern und technisch wirken 
-aber auch ein bisschen was von mir zeigen nicht zu steif, sondern mit Persönlichkeit, z. B. durch meine Hobbys.
+Die Gestaltung ist auf gute Lesbarkeit und Barrierearmut ausgelegt: hoher Kontrast, Schriftgroessen zwischen 1.05 rem und 2.75 rem (per `clamp` responsiv skaliert), ausreichende Weissraeume und eine Navigation, die sowohl per Maus als auch per Touch unkompliziert funktioniert.
 
 ## Sitemap ##
-index.html (Home)
-Willkommenstext
-Kurze Vorstellung
-Motorrad-Bild
-Link zu anderen Seiten
-
-ueber_mich.html (Über mich)
-Wer ich bin (16, Roggwil BE, Bystronic)
-Mein Portraitfoto
-
-hobbys.html (Hobbys)
-Liste: Motorradfahren, Tennis, Klettern
-Foto vom Motorradfahren bei Sonnenuntergang
-
-faehigkeiten.html (Fähigkeiten)
-Technik: HTML, CSS, SQL, Java, Python
-Sprachen: Deutsch (Muttersprache), Englisch, Französisch
-Soft Skills: Teamarbeit, Lernbereitschaft, Kreativität
-
-diplome.html (Diplome)
-Theorieprüfung Auto
-Traktorprüfung G40
-Sekundarschulabschluss
-Drohnenprüfung
-Informatiker EFZ (in Ausbildung)
-
-kontakt.html (Kontakt)
-Kontaktformular (Name, E-Mail, Betreff, Nachricht)
-Instagram,Facebook, LinkedIn Icon mit Link
-
-impressum.html (Impressum)
-Mein Name und Wohnort
-E-Mail-Adresse
-Rechtliches Zeug
-
+- `index.html`: Startseite mit Hero-Sektion, kurzer Projektuebersicht und Highlights.
+- `ueber_mich.html`: Steckbrief, Motivation und Werte inklusive Portraitfoto.
+- `skills.html`: Uebersicht ueber technische Skills, Tools, Soft Skills und Sprachen.
+- `diplome.html`: Auflistung von Abschluessen und Zertifikaten.
+- `hobbys.html`: Persoenliche Interessen mit Bildstrecken.
+- `gallery.html`: Bildgalerie mit Slider (JavaScript gesteuert).
+- `konzept.html`: Dokumentation der Gestaltungsideen (Farbpalette, Breakpoints, Mockups).
+- `contact.html`: Validiertes Kontaktformular plus alternative Kontaktwege.
+- `impressum.html`: Rechtliche Angaben und Kontaktdaten.
 
 ## Farben und Schriften ##
+### Farben
+- `#1F5F8B` (Primaerblau): praegt Logo, Buttons, aktive Navigation. Die Farbe steht fuer Vertrauen und Technik und bildet einen klaren Kontrast zum hellen Hintergrund.
+- `#2F74A8` (Sekundaerblau): wird fuer Hover- und Fokuszustaende eingesetzt, damit Interaktionen visuell nachvollziehbar bleiben.
+- `#F5A623` (Akzentorange): markiert besonders wichtige Elemente (Call-to-Actions und Icons) und bringt Waerme in das ansonsten kuehle Farbschema.
+- `#F5F7FB` (Hintergrund): sehr helles Grau-Blau als Grundflaeche, damit Karten und Textbereiche weich eingebettet werden und lange Lesetexte nicht auf reinem Weiss stehen.
+- `#FFFFFF` (Surface): Karten- und Formularhintergrund fuer einen klaren Layer ueber dem Grundlayout.
+- `#1F2B3A` (Primaertext): dunkles Petrol, sorgt fuer optimale Lesbarkeit auf hellem Grund.
+- `#5B6B7A` (Sekundaertext): abgeschwaechte Variante fuer erklaerende Texte oder Beschreibungen.
+- `#0F1D2B` (Footer): sehr dunkler Blauton schafft Gewicht am Seitenende und sorgt fuer klar abgegrenzte Metainformationen.
 
-Farben
-Hintergrund: Verlauf von Weiss (#FFFFFF) zu DeepSkyBlue (#00BFFF) sieht cool aus.
-Header/Footer: Dunkles Blau (rgba(0, 0, 139, 0.9)), bisschen durchsichtig.
-Überschriften: Türkis (#5F9EA0), passt zum Technik-Look.
-Text: Schwarz (#000000) im Hauptteil, Weiss (#FFFFFF) im Footer.
-Formular/Button: Türkis (#5F9EA0), beim Hover DeepSkyBlue (#00BFFF).
-Formular-Hintergrund: Fast Weiss (rgba(255, 255, 255, 0.95)).
-Schriften
-Schriftart: 'Courier New', Courier, monospace technisch und klar, gefällt mir.
-Grössen:
-h1: 2.5rem (PC), 2rem (Handy).
-h2: 1.8rem (PC), 1.4rem (Handy).
-Normaler Text und Formular: 1.1rem bis 1.2rem.
+Die Farbpalette ist bewusst konsistent: Blau steht fuer Seriositaet und passt zur technischen Ausbildung, Orange sorgt als Akzent fuer Aufmerksamkeit bei Buttons und Links, ohne den ruhigen Gesamteindruck zu stoeren. Transparente Layer (z. B. `rgba(255, 255, 255, 0.94)`) erzeugen Tiefe, bleiben aber leicht genug, damit Inhalte im Fokus bleiben.
 
-## Testing ##
+### Schriften
+- **Schriftfamilie:** `"Segoe UI", Tahoma, Geneva, Verdana, sans-serif`. Diese systemnahen Sans-Serif-Fonts sind auf Windows, macOS und mobilen Geraeten verfuegbar, wirken modern und sind auf Displays hervorragend lesbar.
+- **Basisgroesse:** Im `:root` ist `font-size: 16px` gesetzt, wodurch rem-Werte konsistent bleiben und Browser-Zoom zuverlaessig funktioniert.
+- **Headlines:** `clamp`-Funktionen (z. B. `clamp(2rem, 5vw, 2.75rem)`) skalieren Ueberschriften dynamisch zwischen Smartphone und Desktop.
+- **Lauftext:** Mit ca. 1.05 rem liegt der Text leicht ueber dem Standard und verhindert ermuedendes Lesen. Formulare erben die Schrift aus dem Body (`font: inherit`), damit alle Eingabefelder denselben Look haben.
+- **Gewichte:** Eine Kombination aus Normalgewicht, 500 (Navigation) und 600 (Buttons, Unterueberschriften) lenkt die Aufmerksamkeit, ohne viele unterschiedliche Fonts laden zu muessen.
 
-### Testkonzept ###
-Testkonzept
-Ich teste die Seite mit einer Vorlage. Mindestens zwei Tests: 
-einmal lokal, bevor sie online geht und einmal danach. Wenn was nicht stimmt, 
-fix ich es und teste nochmal oder rede mit meinem Coach. Ich checke, ob die Seite auf Handy und PC gut aussieht, 
-ob das Kontaktformular E-Mails schickt und ob alles richtig angezeigt wird.
+Die Entscheidung gegen dekorative Schriften hilft, Ladezeiten zu reduzieren und den serioesen Eindruck zu staerken. Gleichzeitig bleibt das Layout durch die klaren Sans-Serif-Schnitte leicht und zeitgemaess.
 
-Tests werden anhand der Testprotokollvorlage durchgeführt. Es werden mindestens 
-vor dem Go-Online und die Onlineversion getestet. Fehlerhafte Tests werden 
-entweder korrigiert und wiederholt, oder mit dem Coach besprochen.
-
-### Testprotokolle ###
-
-Testprotokolle
-Test 1: Lokale Version
-Datum: 05.03.2025
-Ziel: Layout, Responsivität, Formular testen.
-Ergebnis: Formular schickt Mails an thierry.andres@quickline.ch, alles zentriert auf Desktop.
-Status: Erfolgreich
-
-Test 2: Online Version
-Datum: 06.03.2025
-Ziel: Sicherstellen, dass die Seite online funktioniert, das Formular E-Mails schickt und alles gut aussieht.
-Ergebnis: Formular schickt Mails an thierry.andres@quickline.ch, alles zentriert auf Desktop und Mobile.
-Status: Erfolgreich
-
-
-
-## Fazit ##
-
-Meine Meinung
-
-Was lief gut?: Ich hab’s geschafft, eine coole, responsive Seite zu bauen, die echt was hergibt. 
-Das Kontaktformular mit Formspree funktioniert und die Navigation mit dem interaktiven Burger Menü funktioniert ebenfalls. Das Design gefällt mir richtig gut!
-
-Was lief schlecht?: Am Anfang war mein CSS ein Chaos und das Rumfummeln mit den <div>-Tags hat genervt mal weg, mal wieder drin. Formspree einzurichten war erstmal tricky.
-
-Ziele erreicht?: Ja, auf jeden fall. Die Seite zeigt, wer ich bin, was ich kann und Leute können mir schreiben. Genau, was ich wollte.
-
-Wie zufrieden bin ich?: Sehr zufrieden! Sieht professionell aus, aber hat auch meinen Style.
-
-Was gelernt?: Ich hab kapiert, wie man Webseiten mit HTML, CSS und JavaScript macht, Formspree einbindet und mit Responsivität arbeitet. CSS-Fehler finden und fixen war auch eine Lektion.
-
-Nächstes Mal anders?: Ich würd gleich sauberer mit CSS starten und vielleicht ein Tool wie Bootstrap ausprobieren. Und ich lad die Seite früher hoch, um den Online-Test schneller zu machen.
