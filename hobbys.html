@@ -1,53 +1,70 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hobbys</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hobbys - Thierry Andres</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
+<header class="header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">Thierry Andres</a>
+        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" data-nav id="primary-navigation">
+            <ul class="nav-list">
                 <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                <li><a href="ueber_mich.html">Ueber mich</a></li>
+                <li><a href="skills.html">Skills</a></li>
                 <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="hobbys.html" aria-current="page">Hobbys</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="konzept.html">Konzept</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
-<main>
-    <h1>Hobbys</h1>
-    <ul>
-        <li>🏍 Motorradfahren</li>
-        <li>Die Freiheit der Strasse und die Faszination für Technik machen jede Tour für mich zum Erlebnis.</li>
-        <li>🎾 Tennis</li>
-        <li>Ein dynamischer Sport, der Technik, Taktik und Ausdauer fordert – perfekt, um mich herauszufordern.</li>
-        <li>🧗‍♂️ Klettern</li>
-        <li>Kraft, Präzision und Strategie – beim Klettern reizt mich die Herausforderung, neue Höhen zu erreichen.</li>
-    </ul>
-    <img src="img/Klettern.JPEG" alt="Klettern in Cassis" width="400" height="300">
+<main class="main-content">
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Meine Hobbys</h1>
+            <p>Ausgleich ist mir wichtig. Bewegung, Technik und Natur geben mir neue Energie fuer Ausbildung und Projekte.</p>
+        </div>
+        <div class="hero-image">
+            <img src="img/Motorradmitthierry.JPEG" alt="Thierry Andres auf dem Motorrad">
+        </div>
+    </section>
+    <section class="section grid-3">
+        <article class="card">
+            <h3>Motorradfahren</h3>
+            <p>Fuer mich bedeutet Motorradfahren Freiheit. Ich lerne Verantwortung im Strassenverkehr und verbessere meine Reaktionsfaehigkeit.</p>
+        </article>
+        <article class="card">
+            <h3>Klettern</h3>
+            <p>Klettern schult Fokus und Koerperkoordination. Ich trainiere regelmaessig in der Halle und draussen, um Technik und Ausdauer zu verbessern.</p>
+        </article>
+        <article class="card">
+            <h3>Drohnenfluege</h3>
+            <p>Mit der Drohne entdecke ich neue Perspektiven. Ich plane Routen, achte auf Sicherheit und analysiere das Material anschliessend am Rechner.</p>
+        </article>
+    </section>
 </main>
-
-<footer>
-    <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+        <div class="footer-nav">
+            <a href="contact.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="konzept.html">Konzept</a>
+        </div>
+    </div>
 </footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

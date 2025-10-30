@@ -1,52 +1,73 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diplome</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Diplome - Thierry Andres</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
+<header class="header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">Thierry Andres</a>
+        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" data-nav id="primary-navigation">
+            <ul class="nav-list">
                 <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
+                <li><a href="ueber_mich.html">Ueber mich</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="diplome.html" aria-current="page">Diplome</a></li>
                 <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="konzept.html">Konzept</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
-<main>
-    <h1>Diplome📝</h1>
-    <ul>
-        <li>Theorieprüfung Auto – Bestanden, Jahr 2024</li>
-        <li>Traktorprüfung G40 - Bestanden, Jahr 2023</li>
-        <li>Sekundarschulabschluss – Thierry Andres 2024</li>
-        <li>Drohnenprüfung – Zertifikat für Drohnenführung</li>
-        <li>Informatiker EFZ (Applikationsentwicklung) – In Ausbildung bei Bystronic, seit 2024</li>
-
-    </ul>
+<main class="main-content">
+    <section class="section">
+        <h1>Diplome und Zertifikate</h1>
+        <p>Jeder Abschluss steht fuer einen Meilenstein auf meinem Weg zum professionellen Entwickler. Die Liste zeigt schulische wie auch persoenliche Erfolge.</p>
+    </section>
+    <section class="section grid-3">
+        <article class="card">
+            <h3>Sekundarschulabschluss</h3>
+            <p>Abschlussjahr 2024 in Roggwil BE. Schwerpunkt auf Mathematik und Informatik, inklusive Projektarbeit zum Thema App-Design.</p>
+        </article>
+        <article class="card">
+            <h3>Traktorpruefung G40</h3>
+            <p>Bestanden im Jahr 2023. Zeigt Verantwortungsbewusstsein und praxisnahe Erfahrung mit Technik und Sicherheit.</p>
+        </article>
+        <article class="card">
+            <h3>Theoriepruefung Auto</h3>
+            <p>Bestanden 2024. Vorbereitung und Planung helfen mir, auch unter Zeitdruck konzentriert zu bleiben.</p>
+        </article>
+        <article class="card">
+            <h3>Drohnenpruefung</h3>
+            <p>Zertifikat fuer das sichere Bedienen von Drohnen. Kombiniert technische Begeisterung mit klaren Sicherheitsstandards.</p>
+        </article>
+        <article class="card">
+            <h3>Informatiker EFZ in Ausbildung</h3>
+            <p>Seit 2024 in der Fachrichtung Applikationsentwicklung bei Bystronic. Fokus auf Softwarearchitektur, Datenbanken und agile Methoden.</p>
+        </article>
+    </section>
 </main>
-
-<footer>
-    <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+        <div class="footer-nav">
+            <a href="contact.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="konzept.html">Konzept</a>
+        </div>
+    </div>
 </footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

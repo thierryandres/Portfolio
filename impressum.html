@@ -1,53 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Impressum - Thierry Andres</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
+<header class="header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">Thierry Andres</a>
+        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" data-nav id="primary-navigation">
+            <ul class="nav-list">
                 <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                <li><a href="ueber_mich.html">Ueber mich</a></li>
+                <li><a href="skills.html">Skills</a></li>
                 <li><a href="diplome.html">Diplome</a></li>
                 <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="konzept.html">Konzept</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="impressum.html" aria-current="page">Impressum</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
-<main>
-    <h1>Impressum</h1>
-    <p>Thierry Andres</p>
-    <p>Roggwil BE, Schweiz</p>
-    <p>Email: <a href="mailto:thierry.andres@quickline.ch">thierry.andres@quickline.ch</a></p>
-    <p>Text Eigenwerk</p>
-    <p>Bilder sind Eigenwerk ausser:</p>
-    <a href="https://pt.vecteezy.com/png-gratis/instagram-logo">Instagram</a>
-    <a href="https://www.vhv.rs/viewpic/TibRbJm_round-facebook-logo-transparent-hd-png-download/H">Facebook</a>
-    <a href="https://pt.vecteezy.com/png-gratis/linkedin">LinkedIn</a>
-    <a href="https://emojikopieren.de/">Emojis</a>
+<main class="main-content">
+    <section class="section card">
+        <h1>Impressum</h1>
+        <p><strong>Verantwortlich fuer den Inhalt:</strong><br>Thierry Andres<br>Roggwil BE, Schweiz</p>
+        <p><strong>Kontakt:</strong><br>E-Mail: <a href="mailto:thierry.andres@example.com">thierry.andres@example.com</a></p>
+        <p>Diese Webseite dient als Portfolio im Rahmen meiner Ausbildung zum Informatiker EFZ. Alle Texte und Bilder stammen von mir oder sind mit Genehmigung verwendet.</p>
+    </section>
+    <section class="section card">
+        <h2>Haftungsausschluss</h2>
+        <p>Die Inhalte wurden sorgfaeltig erstellt. Fuer externe Links uebernehme ich keine Haftung; fuer deren Inhalt sind ausschliesslich deren Betreiber verantwortlich.</p>
+    </section>
 </main>
-
-<footer>
-    <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+        <div class="footer-nav">
+            <a href="contact.html">Kontakt</a>
+            <a href="impressum.html" aria-current="page">Impressum</a>
+            <a href="konzept.html">Konzept</a>
+        </div>
+    </div>
 </footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

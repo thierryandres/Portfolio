@@ -1,47 +1,77 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Thierry Andres</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Thierry Andres</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header>
-  <div class="nav-container">
-    <button class="burger">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="ueber_mich.html">Über mich</a></li>
-        <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-        <li><a href="diplome.html">Diplome</a></li>
-        <li><a href="hobbys.html">Hobbys</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-
-      </ul>
-    </nav>
-  </div>
+<header class="header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">Thierry Andres</a>
+        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" data-nav id="primary-navigation">
+            <ul class="nav-list">
+                <li><a href="index.html" aria-current="page">Startseite</a></li>
+                <li><a href="ueber_mich.html">Ueber mich</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="diplome.html">Diplome</a></li>
+                <li><a href="hobbys.html">Hobbys</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="konzept.html">Konzept</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
-
-<main>
-  <h1>Willkommen auf meinem Portfolio</h1>
-  <p>Hier erfährst du mehr über mich, meine Hobbys, Fähigkeiten und wie du mich kontaktieren kannst.😊</p>
-  <img src="img/Motorradmitthierry.JPEG" alt="Motorrad" width="428" height="571">
+<main class="main-content">
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Portfolio von Thierry Andres</h1>
+            <p>Ich bin angehender Applikationsentwickler EFZ und kombiniere technische Praezision mit kreativen Ideen. Hier findest du eine Auswahl meiner Projekte, Staerken und Leidenschaften - uebersichtlich, modern und responsiv.</p>
+        </div>
+        <div class="hero-image">
+            <img src="img/Andres_Thierry_Portrait.jpg" alt="Portrait von Thierry Andres">
+        </div>
+    </section>
+    <section class="section">
+        <h2>Was dich erwartet</h2>
+        <div class="grid-3">
+            <article class="card">
+                <h3>Kompetenzen</h3>
+                <p>Strukturierte Uebersicht ueber meine technischen Faehigkeiten, Soft Skills und Erfahrungen im IT-Bereich.</p>
+            </article>
+            <article class="card">
+                <h3>Arbeitsweise</h3>
+                <p>Transparente Einblicke in meine Vorgehensweise - von der Konzeption bis zur Umsetzung responsiver Webloesungen.</p>
+            </article>
+            <article class="card">
+                <h3>Kontakt</h3>
+                <p>Ein verlaessliches Kontaktformular mit Validierung sorgt dafuer, dass deine Nachricht direkt und sicher ankommt.</p>
+            </article>
+        </div>
+    </section>
+    <section class="section">
+        <h2>Projekt-Highlights</h2>
+        <p>Erfahre mehr ueber meine Motivation, persoenliche Entwicklung und weitere Projekte in den Unterseiten. Die Navigation fuehrt dich intuitiv durch alle Inhalte - egal ob auf dem Desktop oder auf dem Smartphone.</p>
+    </section>
 </main>
-
-<footer>
-  <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+        <div class="footer-nav">
+            <a href="contact.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="konzept.html">Konzept</a>
+        </div>
+    </div>
 </footer>
-
-<script>
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('nav ul');
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-  });
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

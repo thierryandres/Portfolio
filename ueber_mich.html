@@ -1,48 +1,77 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über mich</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ueber mich - Thierry Andres</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
+<header class="header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">Thierry Andres</a>
+        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" data-nav id="primary-navigation">
+            <ul class="nav-list">
                 <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                <li><a href="ueber_mich.html" aria-current="page">Ueber mich</a></li>
+                <li><a href="skills.html">Skills</a></li>
                 <li><a href="diplome.html">Diplome</a></li>
                 <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="konzept.html">Konzept</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
-<main>
-    <h1>Über mich</h1>
-    <p>Hallo, ich bin Thierry Andres, 16 Jahre alt und lebe in Roggwil BE 📍. Ich mache eine Ausbildung als Informatiker Applikationsentwicklung bei Bystronic. Technik begeistert mich, und ich liebe es, kreative Lösungen zu finden.
-
-        Ich bin sportlich, humorvoll und immer offen für Neues. Herausforderungen nehme ich mit Spass und Energie an – mit mir wird es nie langweilig! 😃</p>
-    <img src="img/Andres_Thierry_Portrait.jpg" alt="Portrait Thierry Andres" width="400" height="600">
+<main class="main-content">
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Ueber mich</h1>
+            <p>Ich heisse Thierry Andres, komme aus Roggwil BE und befinde mich aktuell in der Ausbildung zum Informatiker EFZ mit Fachrichtung Applikationsentwicklung. Technologie begleitet mich seit meiner Kindheit, weil ich Spass daran habe, Ideen in funktionierende Anwendungen zu verwandeln.</p>
+        </div>
+        <div class="hero-image">
+            <img src="img/Andres_Thierry_Portrait.jpg" alt="Portrait von Thierry Andres im Hochformat">
+        </div>
+    </section>
+    <section class="section">
+        <h2>Meine Werte</h2>
+        <div class="grid-3">
+            <article class="card">
+                <h3>Neugier</h3>
+                <p>Ich teste gerne neue Technologien und Tools, um herauszufinden, wie sie Projekte vereinfachen und verbessern koennen.</p>
+            </article>
+            <article class="card">
+                <h3>Teamgeist</h3>
+                <p>Agile Zusammenarbeit motiviert mich. Gemeinsam Loesungen zu entwickeln fuehrt zu den besten Ergebnissen.</p>
+            </article>
+            <article class="card">
+                <h3>Zuverlaessigkeit</h3>
+                <p>Termine und Qualitaet sind fuer mich verbindlich. Sauberer Code, dokumentierte Arbeitsschritte und getestete Funktionen gehoeren einfach dazu.</p>
+            </article>
+        </div>
+    </section>
+    <section class="section card">
+        <h2>Ausblick</h2>
+        <p>Nach der Grundausbildung moechte ich mich auf moderne Webtechnologien und benutzerfreundliche Applikationen fokussieren. Dazu gehoeren saubere UI/UX-Konzepte, performante Architekturen und automatisierte Tests, damit Projekte langfristig stabil bleiben.</p>
+    </section>
 </main>
-
-<footer>
-    <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+        <div class="footer-nav">
+            <a href="contact.html">Kontakt</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="konzept.html">Konzept</a>
+        </div>
+    </div>
 </footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
