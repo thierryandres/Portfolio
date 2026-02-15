@@ -1,77 +1,218 @@
 ﻿<!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark" data-accent="cyan">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Thierry Andres</title>
+    <title>Thierry Andres - Playground</title>
+    <meta name="description" content="Persönliche Playground-Seite von Thierry Andres: kreativ, interaktiv und ohne CV-Vibe.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header class="header">
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<canvas class="particles-canvas" data-particles-canvas aria-hidden="true"></canvas>
+
+<header class="site-header">
     <div class="header-inner">
-        <a class="logo" href="index.html">Thierry Andres</a>
-        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav class="nav" data-nav id="primary-navigation">
+        <a class="logo" href="index.html#hero">Thierry Andres</a>
+        <nav class="site-nav" id="primary-navigation" data-nav-panel>
             <ul class="nav-list">
-                <li><a href="index.html" aria-current="page">Startseite</a></li>
-                <li><a href="ueber_mich.html">Ueber mich</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="konzept.html">Konzept</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="index.html#hero" aria-current="page">Start</a></li>
+                <li><a href="index.html#now">Now</a></li>
+                <li><a href="index.html#skills-honest">Skills</a></li>
+                <li><a href="index.html#life">Life</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#playground">Playground</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Zum hellen Modus wechseln" aria-pressed="false">
+                <span class="theme-toggle__glyph" aria-hidden="true">◐</span>
+            </button>
+            <button class="icon-btn nav-toggle" type="button" aria-label="Navigation öffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>
-<main class="main-content">
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Portfolio von Thierry Andres</h1>
-            <p>Ich bin angehender Applikationsentwickler EFZ und kombiniere technische Praezision mit kreativen Ideen. Hier findest du eine Auswahl meiner Projekte, Staerken und Leidenschaften - uebersichtlich, modern und responsiv.</p>
-        </div>
-        <div class="hero-image">
-            <img src="img/Andres_Thierry_Portrait.jpg" alt="Portrait von Thierry Andres">
-        </div>
-    </section>
-    <section class="section">
-        <h2>Was dich erwartet</h2>
-        <div class="grid-3">
-            <article class="card">
-                <h3>Kompetenzen</h3>
-                <p>Strukturierte Uebersicht ueber meine technischen Faehigkeiten, Soft Skills und Erfahrungen im IT-Bereich.</p>
-            </article>
-            <article class="card">
-                <h3>Arbeitsweise</h3>
-                <p>Transparente Einblicke in meine Vorgehensweise - von der Konzeption bis zur Umsetzung responsiver Webloesungen.</p>
-            </article>
-            <article class="card">
-                <h3>Kontakt</h3>
-                <p>Ein verlaessliches Kontaktformular mit Validierung sorgt dafuer, dass deine Nachricht direkt und sicher ankommt.</p>
-            </article>
+
+<main id="main-content" class="main-content">
+    <section id="hero" class="section-shell glass hero reveal" data-reveal>
+        <p class="hero__kicker">About Me / Playground</p>
+        <div class="hero__grid">
+            <div>
+                <h1>Thierry Andres in <span class="gradient-text">Freestyle Mode</span></h1>
+                <p class="hero__subline" data-typewriter="Kein Lebenslauf. Nur mein Internet-Eckli mit ein bisschen Technik und Chaos in kontrollierter Form."></p>
+                <div class="hero__stats">
+                    <span class="stat-chip">Roggwil BE, Schweiz</span>
+                    <span class="stat-chip">Informatiker EFZ seit 2024</span>
+                    <span class="stat-chip">Bystronic - Applikationsentwicklung</span>
+                    <span class="stat-chip">Motorrad + Tennis + Klettern</span>
+                </div>
+            </div>
+            <figure class="hero__portrait">
+                <img src="img/OsakaNachtPortrait.JPEG" alt="Portrait von Thierry Andres" loading="eager" width="1200" height="1600">
+            </figure>
         </div>
     </section>
-    <section class="section">
-        <h2>Projekt-Highlights</h2>
-        <p>Erfahre mehr ueber meine Motivation, persoenliche Entwicklung und weitere Projekte in den Unterseiten. Die Navigation fuehrt dich intuitiv durch alle Inhalte - egal ob auf dem Desktop oder auf dem Smartphone.</p>
+
+    <section id="now" class="section-shell glass reveal" data-reveal>
+        <h2 class="section-title">Now</h2>
+        <p class="section-lead">Was gerade läuft, ohne PR-Satzbau.</p>
+        <ul class="now-list">
+            <li>Ich mache die Ausbildung als Informatiker EFZ in Applikationsentwicklung bei Bystronic (seit 2024).</li>
+            <li>Basecamp ist Roggwil BE. Schweiz, nicht Silicon Valley.</li>
+            <li>Aktuelles Ziel: Lehre bestehen, Fit bleiben und Sphair schaffen.</li>
+            <li>Interessen ausserhalb vom Screen: Motorradfahren, Tennis und Klettern.</li>
+        </ul>
+    </section>
+
+    <section id="skills-honest" class="section-shell glass reveal" data-reveal>
+        <h2 class="section-title">Skills but honest</h2>
+        <p class="section-lead">Keine Magie-Claims. Nur ehrlicher Stand mit Humor.</p>
+        <div class="badge-cloud" aria-label="Skills als Badges">
+            <span class="badge">C# <small>(noch kein Zauberer)</small></span>
+            <span class="badge">Java <small>(objektorientiert, nicht chaotisch)</small></span>
+            <span class="badge">Python <small>(für kleine Skripte stabil)</small></span>
+            <span class="badge">SQL <small>(SELECT first, panic later)</small></span>
+            <span class="badge">Git <small>(Commit vor Kaffee)</small></span>
+            <span class="badge">Linux <small>(Terminal mag mich meistens)</small></span>
+            <span class="badge">HTML/CSS/JS <small>(pixelgenau mit Ambitionen)</small></span>
+        </div>
+    </section>
+
+    <section id="life" class="section-shell glass reveal" data-reveal>
+        <h2 class="section-title">Hobbys / Life</h2>
+        <p class="section-lead">Ausgleich, Adrenalin und Fokus.</p>
+        <div class="life-grid">
+            <article class="life-card">
+                <img src="assets/icons/motorcycle.svg" alt="Motorrad Icon" class="life-icon" width="64" height="64">
+                <h3>Motorrad</h3>
+                <p>Kurven, Technik und der Kopf wird sofort frei.</p>
+            </article>
+            <article class="life-card">
+                <img src="assets/icons/tennis.svg" alt="Tennis Icon" class="life-icon" width="64" height="64">
+                <h3>Tennis</h3>
+                <p>Guter Ausgleich: Fokus hoch, Stress runter.</p>
+            </article>
+            <article class="life-card">
+                <img src="assets/icons/climbing.svg" alt="Klettern Icon" class="life-icon" width="64" height="64">
+                <h3>Klettern</h3>
+                <p>Griff für Griff denken. Genau mein Ding.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-shell glass reveal" data-reveal>
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-lead">Ein paar echte Momente, keine Stockfotos.</p>
+        <div class="gallery-grid" data-gallery-grid>
+            <button class="gallery-item" type="button" data-lightbox-trigger data-src="img/Motorradmitthierry.JPEG" data-alt="Thierry mit Motorrad" data-caption="Road mode aktiviert">
+                <img src="img/Motorradmitthierry.JPEG" alt="Thierry mit Motorrad" loading="lazy" width="1536" height="2048">
+                <span class="gallery-item__label">Road mode aktiviert</span>
+            </button>
+            <button class="gallery-item" type="button" data-lightbox-trigger data-src="img/Klettern.JPEG" data-alt="Thierry beim Klettern" data-caption="Grip statt Smalltalk">
+                <img src="img/Klettern.JPEG" alt="Thierry beim Klettern" loading="lazy" width="6000" height="4000">
+                <span class="gallery-item__label">Grip statt Smalltalk</span>
+            </button>
+            <button class="gallery-item" type="button" data-lightbox-trigger data-src="img/OsakaNachtPortrait.JPEG" data-alt="Thierry nachts in Osaka" data-caption="Osaka bei Nacht">
+                <img src="img/Hundi.JPEG" alt="Thierry nachts in Osaka" loading="lazy" width="1536" height="2048">
+                <span class="gallery-item__label">Ich und mein Globus-Hundi</span>
+            </button>
+            <button class="gallery-item" type="button" data-lightbox-trigger data-src="img/aufkamelvorpyramiden.JPEG" data-alt="Thierry auf einem Kamel vor den Pyramiden" data-caption="Wüstenmodus vor den Pyramiden">
+                <img src="img/aufkamelvorpyramiden.JPEG" alt="Thierry auf einem Kamel vor den Pyramiden" loading="lazy" width="1536" height="2048">
+                <span class="gallery-item__label">Wüstenmodus vor den Pyramiden</span>
+            </button>
+            <button class="gallery-item" type="button" data-lightbox-trigger data-src="img/AufKran.JPEG" data-alt="Thierry auf Kran" data-caption="Schöne Aussicht über Roggwil">
+                <img src="img/AufKran.JPEG" alt="Thierry auf Kran" loading="lazy" width="1536" height="2048">
+                <span class="gallery-item__label">Schöne Aussicht über Roggwil</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="playground" class="section-shell glass reveal" data-reveal>
+        <h2 class="section-title">Mini Projects / Playground</h2>
+        <p class="section-lead">Kleine Features, direkt im Browser.</p>
+        <div class="playground-grid">
+            <article class="widget">
+                <p class="widget-kicker">Feature 1</p>
+                <h3>Random fact about me</h3>
+                <button class="glow-btn" type="button" data-fact-btn>Fakt auswürfeln</button>
+                <p class="fact-output" data-fact-output aria-live="polite">Drück den Button. Ich liefere Wahrheit statt Buzzwords.</p>
+            </article>
+
+            <article class="widget">
+                <p class="widget-kicker">Feature 2</p>
+                <h3>Mood switcher</h3>
+                <p class="quiz-meta">Heute eher Neon-Cyan, Lime-Fresh oder Sunset?</p>
+                <div class="mood-row" role="group" aria-label="Accent Theme wählen">
+                    <button class="ghost-btn mood-btn" type="button" data-mood-btn data-mood="cyan" aria-pressed="true">Cyan</button>
+                    <button class="ghost-btn mood-btn" type="button" data-mood-btn data-mood="lime" aria-pressed="false">Lime</button>
+                    <button class="ghost-btn mood-btn" type="button" data-mood-btn data-mood="sunset" aria-pressed="false">Sunset</button>
+                </div>
+            </article>
+
+            <article class="widget" data-quiz-root>
+                <p class="widget-kicker">Feature 3</p>
+                <h3>Tiny quiz</h3>
+                <p class="quiz-meta" data-quiz-progress></p>
+                <p data-quiz-question></p>
+                <div class="quiz-options" data-quiz-options></div>
+                <p class="quiz-feedback" data-quiz-feedback aria-live="polite"></p>
+                <button class="glow-btn" type="button" data-quiz-next disabled>Nächste Frage</button>
+                <button class="ghost-btn" type="button" data-quiz-restart hidden>Nochmal starten</button>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="section-shell glass reveal" data-reveal>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-card">
+            <p class="section-lead">Schreib mir oder ping mich auf Insta.</p>
+            <div class="contact-icon-row">
+                <a class="contact-icon-link" href="mailto:thierry@thierryandres.ch" aria-label="E-Mail an Thierry senden">
+                    <img class="contact-icon" src="img/email.png" alt="E-Mail Icon" width="400" height="400" loading="lazy">
+                    <span>Email</span>
+                </a>
+                <a class="contact-icon-link" href="https://www.instagram.com/th1erryandres/" target="_blank" rel="noopener" aria-label="Instagram Profil von Thierry öffnen">
+                    <img class="contact-icon" src="img/instagram-logo.png" alt="Instagram Icon" width="400" height="400" loading="lazy">
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
     </section>
 </main>
-<footer class="footer">
+
+<footer class="site-footer">
     <div class="footer-inner">
-        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-        <div class="footer-nav">
-            <a href="contact.html">Kontakt</a>
+        <p>&copy; <span data-year></span> Thierry Andres · Roggwil BE, Schweiz</p>
+        <div class="footer-links">
+            <a href="index.html#contact">Kontakt</a>
             <a href="impressum.html">Impressum</a>
-            <a href="konzept.html">Konzept</a>
+            <a href="https://www.instagram.com/th1erryandres/" target="_blank" rel="noopener">Instagram</a>
         </div>
     </div>
 </footer>
-<script src="assets/js/main.js"></script>
+
+<div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-hidden="true" hidden>
+    <button class="lightbox__backdrop" type="button" data-lightbox-close aria-label="Lightbox schließen"></button>
+    <figure class="lightbox__content">
+        <button class="icon-btn lightbox__close" type="button" aria-label="Lightbox schließen" data-lightbox-close>✕</button>
+        <img class="lightbox__image" data-lightbox-image alt="">
+        <figcaption class="lightbox__caption" data-lightbox-caption></figcaption>
+        <div class="lightbox__controls">
+            <button class="ghost-btn" type="button" data-lightbox-prev>Zurück</button>
+            <button class="glow-btn" type="button" data-lightbox-next>Weiter</button>
+        </div>
+    </figure>
+</div>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

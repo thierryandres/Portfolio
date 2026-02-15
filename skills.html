@@ -1,93 +1,66 @@
 ﻿<!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark" data-accent="cyan">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Thierry Andres</title>
+    <meta name="description" content="Shortcut-Seite von Thierry Andres.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<header class="header">
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+<header class="site-header">
     <div class="header-inner">
-        <a class="logo" href="index.html">Thierry Andres</a>
-        <button class="nav-toggle" type="button" aria-label="Navigation oeffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav class="nav" data-nav id="primary-navigation">
+        <a class="logo" href="index.html#hero">Thierry Andres</a>
+        <nav class="site-nav" id="primary-navigation" data-nav-panel>
             <ul class="nav-list">
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Ueber mich</a></li>
-                <li><a href="skills.html" aria-current="page">Skills</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="konzept.html">Konzept</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="index.html#hero">Start</a></li>
+                <li><a href="index.html#now">Now</a></li>
+                <li><a href="index.html#skills-honest" aria-current="page">Skills</a></li>
+                <li><a href="index.html#life">Life</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#playground">Playground</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Zum hellen Modus wechseln" aria-pressed="false">
+                <span class="theme-toggle__glyph" aria-hidden="true">◐</span>
+            </button>
+            <button class="icon-btn nav-toggle" type="button" aria-label="Navigation öffnen" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>
-<main class="main-content">
-    <section class="section">
-        <h1>Skills und Erfahrungen</h1>
-        <p>Die folgende Tabelle zeigt, in welchen Technologien ich mich aktuell bewege. Das Niveau beschreibt meinen momentanen Kompetenzstand, waehrend die Erfahrung konkrete Einsaetze oder Projekte zusammenfasst.</p>
-        <div class="table-wrapper" role="region" aria-live="polite" aria-label="Uebersicht meiner technischen Skills">
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Technologie</th>
-                        <th scope="col">Niveau</th>
-                        <th scope="col">Erfahrung</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>HTML &amp; CSS</td>
-                        <td>Mittelstufe</td>
-                        <td>Erstellung responsiver Layouts fuer Schulprojekte und persoenliche Portfolios</td>
-                    </tr>
-                    <tr>
-                        <td>JavaScript</td>
-                        <td>Mittelstufe</td>
-                        <td>Formularvalidierungen, einfache Slider und dynamische Komponenten ohne Frameworks</td>
-                    </tr>
-                    <tr>
-                        <td>Python</td>
-                        <td>Grundlagen</td>
-                        <td>Skripting zur Automatisierung von Aufgaben und Loesen von Coding-Challenges</td>
-                    </tr>
-                    <tr>
-                        <td>SQL</td>
-                        <td>Grundlagen</td>
-                        <td>Abfragen fuer kleine Datenbanken, Normalisierung und Berichtserstellung</td>
-                    </tr>
-                    <tr>
-                        <td>Git &amp; Versionskontrolle</td>
-                        <td>Mittelstufe</td>
-                        <td>Branch-Strategien, Pull-Requests und Code-Reviews in Teamprojekten</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    <section class="section card">
-        <h2>Soft Skills</h2>
-        <p>Kommunikation, Lernbereitschaft und strukturierte Problemanalyse helfen mir, in Projekten fokussiert zu bleiben. Ich uebernehme Verantwortung, gebe Feedback und suche aktiv nach Verbesserungsmoeglichkeiten.</p>
+
+<main id="main-content" class="main-content fallback-shell">
+    <section class="section-shell glass reveal" data-reveal>
+        <span class="page-chip">Shortcut</span>
+        <h1 class="section-title">Skills but honest ist umgezogen.</h1>
+        <p>Die Badge-Cloud und der ehrliche Skill-Stand sind jetzt direkt auf der Hauptseite.</p>
+        <a class="glow-btn" href="index.html#skills-honest">Zu #skills-honest</a>
     </section>
 </main>
-<footer class="footer">
+
+<footer class="site-footer">
     <div class="footer-inner">
-        <p>&copy; 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-        <div class="footer-nav">
-            <a href="contact.html">Kontakt</a>
+        <p>&copy; <span data-year></span> Thierry Andres · Roggwil BE, Schweiz</p>
+        <div class="footer-links">
+            <a href="index.html#contact">Kontakt</a>
             <a href="impressum.html">Impressum</a>
-            <a href="konzept.html">Konzept</a>
+            <a href="https://www.instagram.com/thierry._.andres/" target="_blank" rel="noopener">Instagram</a>
         </div>
     </div>
 </footer>
-<script src="assets/js/main.js"></script>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
