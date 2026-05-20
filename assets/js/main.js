@@ -373,7 +373,7 @@
         }
 
         const facts = [
-            "Ich wohne in Roggwil BE. Ja, das ist nicht Hogwarts, aber fast.",
+            "Ich wohne im Oberargau. Ja, das ist nicht Hogwarts, aber fast.",
             "Seit 2024 in der Ausbildung zum Informatiker EFZ Applikationsentwicklung bei Bystronic.",
             "Wenn es Räder oder Griffe hat, bin ich dabei: Motorradfahren und Klettern.",
             "Ich mag Lösungen, die sauber sind und nicht fünf Workarounds brauchen.",
@@ -473,8 +473,8 @@
             },
             {
                 q: "Welche Region nenne ich als Zuhause?",
-                choices: ["Roggwil BE", "Genf Stadt", "Basel Zentrum"],
-                answer: "Roggwil BE"
+                choices: ["Oberargau", "Genf Stadt", "Basel Zentrum"],
+                answer: "Oberargau"
             },
             {
                 q: "Was ist kein Hobby von mir laut Seite?",
