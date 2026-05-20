@@ -12,13 +12,19 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <meta name="google-site-verification" content="-5ek1b52KnOvfp3J7Kvg3nGDh5UIB9D-ABO_LtC8rbY" />
 </head>
-<body>
+<body data-page="home">
 <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
 <canvas class="particles-canvas" data-particles-canvas aria-hidden="true"></canvas>
+<div class="home-fx" aria-hidden="true">
+    <span class="home-fx__orb home-fx__orb--a"></span>
+    <span class="home-fx__orb home-fx__orb--b"></span>
+    <span class="home-fx__orb home-fx__orb--c"></span>
+    <span class="home-fx__scanlines"></span>
+</div>
 
-<header class="site-header">
+<header class="site-header" data-home-entrance="header">
     <div class="header-inner">
-        <a class="logo" href="index.html#hero">Thierry Andres</a>
+        <a class="logo" href="index.html#hero" data-home-entrance-item>Thierry Andres</a>
         <nav class="site-nav" id="primary-navigation" data-nav-panel>
             <ul class="nav-list">
                 <li><a href="index.html#hero" aria-current="page">Start</a></li>
@@ -31,7 +37,7 @@
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
         </nav>
-        <div class="header-actions">
+        <div class="header-actions" data-home-entrance-item>
             <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Zum hellen Modus wechseln" aria-pressed="false">
                 <span class="theme-toggle__glyph" aria-hidden="true">◐</span>
             </button>
@@ -45,7 +51,7 @@
 </header>
 
 <main id="main-content" class="main-content">
-    <section id="hero" class="section-shell glass hero reveal" data-reveal>
+    <section id="hero" class="section-shell glass hero reveal" data-reveal data-home-entrance-item>
         <p class="hero__kicker">About Me</p>
         <div class="hero__grid">
             <div>

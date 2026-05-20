@@ -16,6 +16,10 @@
     --accent: #46f6ff;
     --accent-rgb: 70, 246, 255;
     --accent-2: #6d7bff;
+    --scroll-progress: 0;
+    --pointer-x: 50vw;
+    --pointer-y: 50vh;
+    --entrance-delay: 0ms;
 
     --radius-sm: 0.75rem;
     --radius-md: 1rem;
@@ -784,6 +788,352 @@ textarea:focus-visible {
     outline-offset: 3px;
 }
 
+body[data-page="home"] {
+    position: relative;
+}
+
+body[data-page="home"]::after {
+    content: "";
+    position: fixed;
+    inset: -14%;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(
+        32rem circle at var(--pointer-x) var(--pointer-y),
+        rgba(var(--accent-rgb), 0.22) 0%,
+        rgba(var(--accent-rgb), 0.07) 26%,
+        transparent 62%
+    );
+    opacity: 0.72;
+    transition: opacity 0.24s ease;
+}
+
+body[data-page="home"] .home-fx {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+body[data-page="home"] .home-fx__orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(12px);
+    opacity: 0.45;
+    mix-blend-mode: screen;
+}
+
+body[data-page="home"] .home-fx__orb--a {
+    width: min(44vw, 30rem);
+    aspect-ratio: 1;
+    left: -8vw;
+    top: 18vh;
+    background: radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb), 0.64), transparent 66%);
+    animation: homeDriftA 14s ease-in-out infinite alternate;
+}
+
+body[data-page="home"] .home-fx__orb--b {
+    width: min(30vw, 22rem);
+    aspect-ratio: 1;
+    right: 8vw;
+    top: 8vh;
+    background: radial-gradient(circle at 62% 28%, rgba(109, 123, 255, 0.6), transparent 64%);
+    animation: homeDriftB 11s ease-in-out infinite alternate;
+}
+
+body[data-page="home"] .home-fx__orb--c {
+    width: min(38vw, 26rem);
+    aspect-ratio: 1;
+    right: -8vw;
+    bottom: -4vh;
+    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.22), transparent 58%);
+    animation: homeDriftC 13s ease-in-out infinite alternate;
+}
+
+body[data-page="home"] .home-fx__scanlines {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.18) 0,
+            rgba(255, 255, 255, 0.18) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+    animation: homeScanlineDrift 8s linear infinite;
+}
+
+body[data-page="home"] .site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--accent) 75%, white),
+        var(--accent-2),
+        color-mix(in srgb, var(--accent) 55%, white)
+    );
+    transform-origin: left center;
+    transform: scaleX(var(--scroll-progress));
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.55);
+    opacity: 1;
+    animation: homeHeaderPulse 2.2s ease-in-out infinite;
+}
+
+body[data-page="home"] .site-header.is-scrolled {
+    background: color-mix(in srgb, var(--bg) 62%, transparent);
+    border-bottom-color: rgba(var(--accent-rgb), 0.4);
+    box-shadow: 0 10px 30px rgba(4, 8, 19, 0.46);
+}
+
+body[data-page="home"].home-entering [data-home-entrance="header"] {
+    opacity: 0;
+    transform: translateY(-16px);
+    filter: blur(6px);
+    transition:
+        opacity 0.52s ease,
+        transform 0.68s cubic-bezier(.2, .9, .2, 1),
+        filter 0.68s ease;
+}
+
+body[data-page="home"].home-entering [data-home-entrance-item] {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+    filter: blur(8px);
+    transition:
+        opacity 0.62s ease var(--entrance-delay),
+        transform 0.8s cubic-bezier(.16, .84, .24, 1) var(--entrance-delay),
+        filter 0.8s ease var(--entrance-delay);
+}
+
+body[data-page="home"].home-entered [data-home-entrance="header"],
+body[data-page="home"].home-entered [data-home-entrance-item] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+body[data-page="home"] .reveal {
+    --reveal-y: 56px;
+    --reveal-scale: 0.985;
+    opacity: 0;
+    transform:
+        translateY(var(--reveal-y))
+        scale(var(--reveal-scale));
+    filter: blur(11px);
+    transition:
+        opacity 0.58s ease-out,
+        transform 0.64s cubic-bezier(.12, .88, .2, 1),
+        filter 0.56s ease-out;
+}
+
+body[data-page="home"] .reveal.is-visible {
+    --reveal-y: 0px;
+    --reveal-scale: 1;
+    opacity: 1;
+    filter: blur(0);
+}
+
+body[data-page="home"] .hero {
+    position: relative;
+    overflow: hidden;
+}
+
+body[data-page="home"] .hero::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(
+        132deg,
+        rgba(var(--accent-rgb), 0.24) 0%,
+        transparent 32%,
+        rgba(109, 123, 255, 0.22) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    padding: 1px;
+}
+
+body[data-page="home"] .hero__portrait {
+    position: relative;
+    isolation: isolate;
+    box-shadow: 0 18px 60px rgba(3, 9, 20, 0.5), 0 0 0 1px rgba(var(--accent-rgb), 0.26);
+}
+
+body[data-page="home"] .hero__portrait::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        130deg,
+        rgba(var(--accent-rgb), 0.22) 0%,
+        transparent 28%,
+        rgba(109, 123, 255, 0.2) 100%
+    );
+    z-index: 2;
+}
+
+body[data-page="home"] .hero__portrait img {
+    animation: homeKenBurns 12s ease-in-out infinite alternate;
+    transform-origin: 58% 44%;
+}
+
+body[data-page="home"] .section-shell {
+    box-shadow:
+        0 30px 84px rgba(2, 6, 16, 0.55),
+        0 0 0 1px rgba(var(--accent-rgb), 0.2),
+        0 0 28px rgba(var(--accent-rgb), 0.13);
+    border-color: rgba(var(--accent-rgb), 0.2);
+}
+
+body[data-page="home"] .gallery-item,
+body[data-page="home"] .life-card,
+body[data-page="home"] .widget,
+body[data-page="home"] .contact-icon-link {
+    position: relative;
+}
+
+body[data-page="home"] .gallery-item::after,
+body[data-page="home"] .life-card::after,
+body[data-page="home"] .widget::after,
+body[data-page="home"] .contact-icon-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+        14rem circle at var(--pointer-x) var(--pointer-y),
+        rgba(var(--accent-rgb), 0.14),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.26s ease;
+}
+
+body[data-page="home"] .gallery-item:hover::after,
+body[data-page="home"] .life-card:hover::after,
+body[data-page="home"] .widget:hover::after,
+body[data-page="home"] .contact-icon-link:hover::after {
+    opacity: 1;
+}
+
+body[data-page="home"] .glow-btn,
+body[data-page="home"] .ghost-btn,
+body[data-page="home"] .icon-btn {
+    transition:
+        transform 0.22s cubic-bezier(.17, .88, .32, 1.02),
+        box-shadow 0.24s ease,
+        border-color 0.24s ease,
+        background-position 0.5s ease;
+}
+
+body[data-page="home"] .glow-btn {
+    background-size: 180% 180%;
+    background-image: linear-gradient(120deg, var(--accent), var(--accent-2), var(--accent));
+    box-shadow: 0 6px 22px rgba(var(--accent-rgb), 0.36);
+}
+
+body[data-page="home"] .glow-btn:hover {
+    background-position: 100% 40%;
+    transform: translateY(-6px) scale(1.026);
+    box-shadow: 0 20px 46px rgba(var(--accent-rgb), 0.55);
+}
+
+body[data-page="home"] .ghost-btn {
+    background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+body[data-page="home"] .ghost-btn:hover {
+    transform: translateY(-5px);
+    border-color: rgba(var(--accent-rgb), 0.75);
+    box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.3);
+}
+
+body[data-page="home"] .icon-btn:hover {
+    transform: translateY(-1px);
+}
+
+body[data-page="home"] .hero__stats .stat-chip {
+    transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+body[data-page="home"] .hero__stats .stat-chip:hover {
+    transform: translateY(-3px);
+    border-color: rgba(var(--accent-rgb), 0.45);
+}
+
+@keyframes homeDriftA {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(4vw, -5vh) scale(1.12);
+    }
+}
+
+@keyframes homeDriftB {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(-6vw, 4vh) scale(1.08);
+    }
+}
+
+@keyframes homeDriftC {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(-5vw, -3vh) scale(1.15);
+    }
+}
+
+@keyframes homeScanlineDrift {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(6px);
+    }
+}
+
+@keyframes homeHeaderPulse {
+    0% {
+        filter: brightness(1) saturate(1);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.42);
+    }
+    50% {
+        filter: brightness(1.2) saturate(1.16);
+        box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.66);
+    }
+    100% {
+        filter: brightness(1) saturate(1);
+        box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.42);
+    }
+}
+
+@keyframes homeKenBurns {
+    from {
+        transform: scale(1.04) translate(0, 0);
+    }
+    to {
+        transform: scale(1.1) translate(-1.8%, -1%);
+    }
+}
+
 @media (min-width: 720px) {
     .hero__grid {
         grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -860,5 +1210,19 @@ textarea:focus-visible {
 
     .particles-canvas {
         display: none;
+    }
+
+    body[data-page="home"]::after,
+    body[data-page="home"] .home-fx,
+    body[data-page="home"] .hero::before {
+        display: none;
+    }
+
+    body[data-page="home"] [data-home-entrance="header"],
+    body[data-page="home"] [data-home-entrance-item],
+    body[data-page="home"] .reveal {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
     }
 }

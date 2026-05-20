@@ -15,7 +15,6 @@
     ];
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     document.addEventListener("DOMContentLoaded", () => {
         initThemeToggle();
         initMobileNav();
@@ -27,14 +26,31 @@
         initQuiz();
         initKonamiConfetti();
         initParticles();
+        initHomeEntrance();
+        initScrollProgress();
+        initHeaderScrollState();
         setFooterYear();
     });
 
     function initThemeToggle() {
         const root = document.documentElement;
         const toggles = document.querySelectorAll("[data-theme-toggle]");
+        const readStoredTheme = () => {
+            try {
+                return localStorage.getItem(THEME_KEY);
+            } catch {
+                return null;
+            }
+        };
+        const storeTheme = (theme) => {
+            try {
+                localStorage.setItem(THEME_KEY, theme);
+            } catch {
+                // Ignore write failures (private mode / blocked storage)
+            }
+        };
 
-        const savedTheme = localStorage.getItem(THEME_KEY);
+        const savedTheme = readStoredTheme();
         const initialTheme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : root.dataset.theme || "dark";
         applyTheme(initialTheme);
 
@@ -42,7 +58,7 @@
             toggle.addEventListener("click", () => {
                 const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
                 applyTheme(nextTheme);
-                localStorage.setItem(THEME_KEY, nextTheme);
+                storeTheme(nextTheme);
             });
         });
 
@@ -316,13 +332,30 @@
         const root = document.documentElement;
         const buttons = Array.from(document.querySelectorAll("[data-mood-btn]"));
         const validMoods = new Set(["cyan", "lime", "sunset"]);
-        const savedMood = localStorage.getItem(ACCENT_KEY);
-        const defaultMood = validMoods.has(savedMood) ? savedMood : root.dataset.accent || "cyan";
-        applyMood(defaultMood);
 
         if (!buttons.length) {
             return;
         }
+
+        const readStoredMood = () => {
+            try {
+                return localStorage.getItem(ACCENT_KEY);
+            } catch {
+                return null;
+            }
+        };
+
+        const storeMood = (mood) => {
+            try {
+                localStorage.setItem(ACCENT_KEY, mood);
+            } catch {
+                // Ignore write failures (private mode / blocked storage)
+            }
+        };
+
+        const savedMood = readStoredMood();
+        const defaultMood = validMoods.has(savedMood || "") ? savedMood : root.dataset.accent || "cyan";
+        applyMood(defaultMood);
 
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
@@ -331,7 +364,7 @@
                     return;
                 }
                 applyMood(mood);
-                localStorage.setItem(ACCENT_KEY, mood);
+                storeMood(mood);
             });
         });
 
@@ -624,6 +657,106 @@
 
         resize();
         frame();
+    }
+
+    function isHomePage() {
+        return document.body?.dataset.page === "home";
+    }
+
+    function initHomeEntrance() {
+        if (!isHomePage()) {
+            return;
+        }
+
+        const body = document.body;
+        const stagedItems = Array.from(document.querySelectorAll("[data-home-entrance-item]"));
+        const header = document.querySelector("[data-home-entrance='header']");
+
+        if (!(body instanceof HTMLBodyElement)) {
+            return;
+        }
+
+        if (reduceMotion) {
+            body.classList.add("home-entered");
+            return;
+        }
+
+        body.classList.add("home-entering");
+
+        if (header instanceof HTMLElement) {
+            header.style.setProperty("--entrance-delay", "0ms");
+        }
+
+        stagedItems.forEach((item, index) => {
+            if (item instanceof HTMLElement) {
+                item.style.setProperty("--entrance-delay", `${80 + index * 76}ms`);
+            }
+        });
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                body.classList.add("home-entered");
+                body.classList.remove("home-entering");
+            });
+        });
+    }
+
+    function initScrollProgress() {
+        if (!isHomePage()) {
+            return;
+        }
+
+        const root = document.documentElement;
+        let ticking = false;
+
+        const update = () => {
+            const maxScrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            const progress = Math.max(0, Math.min(1, window.scrollY / maxScrollable));
+            root.style.setProperty("--scroll-progress", progress.toFixed(4));
+            ticking = false;
+        };
+
+        const requestUpdate = () => {
+            if (ticking) {
+                return;
+            }
+            ticking = true;
+            requestAnimationFrame(update);
+        };
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate, { passive: true });
+        update();
+    }
+
+    function initHeaderScrollState() {
+        if (!isHomePage()) {
+            return;
+        }
+
+        const header = document.querySelector(".site-header");
+        if (!(header instanceof HTMLElement)) {
+            return;
+        }
+
+        let ticking = false;
+
+        const syncHeaderState = () => {
+            header.classList.toggle("is-scrolled", window.scrollY > 24);
+            ticking = false;
+        };
+
+        const requestSync = () => {
+            if (ticking) {
+                return;
+            }
+            ticking = true;
+            requestAnimationFrame(syncHeaderState);
+        };
+
+        window.addEventListener("scroll", requestSync, { passive: true });
+        window.addEventListener("resize", requestSync, { passive: true });
+        syncHeaderState();
     }
 
     function setFooterYear() {
