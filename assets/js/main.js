@@ -29,6 +29,7 @@
         initHomeEntrance();
         initScrollProgress();
         initHeaderScrollState();
+        initScrollSpy();
         initPointerGlow();
         setFooterYear();
     });
@@ -83,20 +84,24 @@
     function initMobileNav() {
         const navToggle = document.querySelector("[data-nav-toggle]");
         const navPanel = document.querySelector("[data-nav-panel]");
+        const navScrim = document.querySelector("[data-nav-scrim]");
 
         if (!(navToggle instanceof HTMLButtonElement) || !(navPanel instanceof HTMLElement)) {
             return;
         }
 
-        const closeNav = () => {
-            navPanel.classList.remove("open");
-            navToggle.setAttribute("aria-expanded", "false");
+        const setNavOpen = (open) => {
+            navPanel.classList.toggle("open", open);
+            document.body.classList.toggle("nav-open", open);
+            navToggle.setAttribute("aria-expanded", String(open));
+            navToggle.setAttribute("aria-label", open ? "Navigation schliessen" : "Navigation öffnen");
         };
+
+        const closeNav = () => setNavOpen(false);
 
         navToggle.addEventListener("click", () => {
             const open = !navPanel.classList.contains("open");
-            navPanel.classList.toggle("open", open);
-            navToggle.setAttribute("aria-expanded", String(open));
+            setNavOpen(open);
         });
 
         navPanel.addEventListener("click", (event) => {
@@ -105,11 +110,19 @@
             }
         });
 
+        if (navScrim instanceof HTMLElement) {
+            navScrim.addEventListener("click", closeNav);
+        }
+
         document.addEventListener("click", (event) => {
             if (!(event.target instanceof Node)) {
                 return;
             }
-            if (!navPanel.contains(event.target) && !navToggle.contains(event.target)) {
+            if (
+                !navPanel.contains(event.target) &&
+                !navToggle.contains(event.target) &&
+                !(navScrim instanceof HTMLElement && navScrim.contains(event.target))
+            ) {
                 closeNav();
             }
         });
@@ -201,6 +214,7 @@
         const prevButton = lightbox.querySelector("[data-lightbox-prev]");
         const nextButton = lightbox.querySelector("[data-lightbox-next]");
         const closeButtons = Array.from(lightbox.querySelectorAll("[data-lightbox-close]"));
+        const counter = lightbox.querySelector("[data-lightbox-counter]");
 
         if (!(image instanceof HTMLImageElement) || !(caption instanceof HTMLElement) || !triggers.length) {
             return;
@@ -208,26 +222,63 @@
 
         let index = 0;
         let lastFocused = null;
+        let closeTimer = 0;
+        let renderToken = 0;
+
+        const readGalleryItem = (itemIndex) => {
+            const trigger = triggers[itemIndex];
+            if (!(trigger instanceof HTMLElement)) {
+                return null;
+            }
+
+            return {
+                src: trigger.dataset.src || "",
+                srcset: trigger.dataset.lightboxSrcset || "",
+                alt: trigger.dataset.alt || "Galeriebild",
+                label: trigger.dataset.caption || trigger.dataset.alt || "Galeriebild"
+            };
+        };
 
         const render = () => {
-            const trigger = triggers[index];
-            if (!(trigger instanceof HTMLElement)) {
+            const token = (renderToken += 1);
+            const item = readGalleryItem(index);
+            if (!item) {
                 return;
             }
-            const src = trigger.dataset.src || "";
-            const alt = trigger.dataset.alt || "Galeriebild";
-            const label = trigger.dataset.caption || alt;
-            image.src = src;
-            image.alt = alt;
-            caption.textContent = label;
+
+            const applyImage = () => {
+                if (token !== renderToken) {
+                    return;
+                }
+
+                image.srcset = item.srcset;
+                image.sizes = "min(92vw, 980px)";
+                image.src = item.src;
+                image.alt = item.alt;
+                caption.textContent = item.label;
+
+                if (counter instanceof HTMLElement) {
+                    counter.textContent = `${index + 1} / ${triggers.length}`;
+                }
+            };
+
+            if (!lightbox.hidden && !reduceMotion && image.src) {
+                image.classList.add("is-switching");
+                window.setTimeout(applyImage, 120);
+                return;
+            }
+
+            applyImage();
         };
 
         const open = (nextIndex) => {
             index = nextIndex;
             lastFocused = document.activeElement;
+            window.clearTimeout(closeTimer);
             render();
             lightbox.hidden = false;
             lightbox.setAttribute("aria-hidden", "false");
+            requestAnimationFrame(() => lightbox.classList.add("is-open"));
             document.body.style.overflow = "hidden";
             const closeButton = lightbox.querySelector(".lightbox__close");
             if (closeButton instanceof HTMLElement) {
@@ -236,10 +287,18 @@
         };
 
         const close = () => {
-            lightbox.hidden = true;
+            lightbox.classList.remove("is-open");
             lightbox.setAttribute("aria-hidden", "true");
             document.body.style.overflow = "";
-            image.removeAttribute("src");
+            closeTimer = window.setTimeout(
+                () => {
+                    lightbox.hidden = true;
+                    image.removeAttribute("src");
+                    image.removeAttribute("srcset");
+                    image.classList.remove("is-switching");
+                },
+                reduceMotion ? 0 : 180
+            );
             if (lastFocused instanceof HTMLElement) {
                 lastFocused.focus();
             }
@@ -249,6 +308,10 @@
             index = (index + direction + triggers.length) % triggers.length;
             render();
         };
+
+        image.addEventListener("load", () => {
+            image.classList.remove("is-switching");
+        });
 
         triggers.forEach((trigger, triggerIndex) => {
             trigger.addEventListener("click", () => open(triggerIndex));
@@ -760,6 +823,80 @@
         syncHeaderState();
     }
 
+    function initScrollSpy() {
+        if (!isHomePage()) {
+            return;
+        }
+
+        const links = Array.from(document.querySelectorAll(".nav-list a[href^='index.html#']"));
+        const items = links
+            .map((link) => {
+                if (!(link instanceof HTMLAnchorElement)) {
+                    return null;
+                }
+
+                const id = link.hash.slice(1);
+                const section = document.getElementById(id);
+                if (!id || !(section instanceof HTMLElement)) {
+                    return null;
+                }
+
+                return { id, link, section };
+            })
+            .filter(Boolean);
+
+        if (!items.length) {
+            return;
+        }
+
+        let activeId = "";
+        let ticking = false;
+
+        const setActive = (id) => {
+            if (id === activeId) {
+                return;
+            }
+
+            activeId = id;
+            items.forEach((item) => {
+                if (item.id === id) {
+                    item.link.setAttribute("aria-current", "page");
+                } else {
+                    item.link.removeAttribute("aria-current");
+                }
+            });
+        };
+
+        const update = () => {
+            const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 72;
+            const marker = window.scrollY + headerOffset + Math.min(window.innerHeight * 0.22, 180);
+            let current = items[0];
+
+            items.forEach((item) => {
+                if (item.section.offsetTop <= marker) {
+                    current = item;
+                }
+            });
+
+            const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+            setActive(nearBottom ? items[items.length - 1].id : current.id);
+            ticking = false;
+        };
+
+        const requestUpdate = () => {
+            if (ticking) {
+                return;
+            }
+            ticking = true;
+            requestAnimationFrame(update);
+        };
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate, { passive: true });
+        window.addEventListener("hashchange", requestUpdate);
+        update();
+    }
+
     function initPointerGlow() {
         if (!isHomePage() || reduceMotion || !window.matchMedia("(pointer: fine)").matches) {
             return;
@@ -768,7 +905,10 @@
         const root = document.documentElement;
         const body = document.body;
         const hoverTargets = document.querySelectorAll(
-            ".gallery-item, .life-card, .widget, .contact-icon-link, .stat-chip, .badge, .glow-btn, .ghost-btn, .icon-btn"
+            ".gallery-item, .life-card, .widget, .contact-icon-link, .stat-chip, .badge, .glow-btn, .ghost-btn, .icon-btn, .nav-list a"
+        );
+        const magneticTargets = document.querySelectorAll(
+            ".gallery-item, .contact-icon-link, .glow-btn, .ghost-btn, .icon-btn, .nav-list a"
         );
 
         let pointerX = window.innerWidth / 2;
@@ -811,6 +951,23 @@
             target.style.setProperty("--hover-y", `${y.toFixed(2)}%`);
         };
 
+        const syncMagnetPosition = (target, event) => {
+            const rect = target.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) {
+                return;
+            }
+
+            const x = (event.clientX - (rect.left + rect.width / 2)) * 0.12;
+            const y = (event.clientY - (rect.top + rect.height / 2)) * 0.16;
+            target.style.setProperty("--magnet-x", `${Math.max(-9, Math.min(9, x)).toFixed(2)}px`);
+            target.style.setProperty("--magnet-y", `${Math.max(-7, Math.min(7, y)).toFixed(2)}px`);
+        };
+
+        const resetMagnetPosition = (target) => {
+            target.style.setProperty("--magnet-x", "0px");
+            target.style.setProperty("--magnet-y", "0px");
+        };
+
         window.addEventListener("pointermove", requestPointerSync, { passive: true });
         window.addEventListener("pointerleave", () => {
             body.classList.remove("is-pointer-active", "is-pointer-on-control");
@@ -847,6 +1004,25 @@
             target.addEventListener("pointerleave", () => {
                 body.classList.remove("is-pointer-on-control");
             });
+        });
+
+        magneticTargets.forEach((target) => {
+            if (!(target instanceof HTMLElement)) {
+                return;
+            }
+
+            target.addEventListener(
+                "pointermove",
+                (event) => {
+                    if (event.pointerType === "touch") {
+                        return;
+                    }
+                    syncMagnetPosition(target, event);
+                },
+                { passive: true }
+            );
+
+            target.addEventListener("pointerleave", () => resetMagnetPosition(target));
         });
 
         syncPointer();

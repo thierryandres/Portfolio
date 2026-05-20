@@ -49,6 +49,7 @@
         </div>
     </div>
 </header>
+<div class="nav-scrim" data-nav-scrim aria-hidden="true"></div>
 
 <main id="main-content" class="main-content">
     <section id="hero" class="section-shell glass hero reveal" data-reveal data-home-entrance-item>
@@ -213,7 +214,10 @@
     <figure class="lightbox__content">
         <button class="icon-btn lightbox__close" type="button" aria-label="Lightbox schliessen" data-lightbox-close>✕</button>
         <img class="lightbox__image" data-lightbox-image alt="">
-        <figcaption class="lightbox__caption" data-lightbox-caption></figcaption>
+        <div class="lightbox__meta">
+            <figcaption class="lightbox__caption" data-lightbox-caption></figcaption>
+            <span class="lightbox__counter" data-lightbox-counter></span>
+        </div>
         <div class="lightbox__controls">
             <button class="ghost-btn" type="button" data-lightbox-prev>Zurück</button>
             <button class="glow-btn" type="button" data-lightbox-next>Weiter</button>
