@@ -310,7 +310,7 @@
 
         const facts = [
             "Ich wohne in Roggwil BE. Ja, das ist nicht Hogwarts, aber fast.",
-            "Seit 2024: Informatiker EFZ Applikationsentwicklung bei Bystronic.",
+            "Seit 2024 in der Ausbildung zum Informatiker EFZ Applikationsentwicklung bei Bystronic.",
             "Wenn es Räder oder Griffe hat, bin ich dabei: Motorradfahren und Klettern.",
             "Ich mag Lösungen, die sauber sind und nicht fünf Workarounds brauchen.",
             "Tennis ist mein Reset-Button nach langen Coding-Sessions."
