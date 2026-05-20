@@ -19,6 +19,8 @@
     --scroll-progress: 0;
     --pointer-x: 50vw;
     --pointer-y: 50vh;
+    --hover-x: 50%;
+    --hover-y: 50%;
     --entrance-delay: 0ms;
 
     --radius-sm: 0.75rem;
@@ -795,7 +797,7 @@ body[data-page="home"] {
 body[data-page="home"]::after {
     content: "";
     position: fixed;
-    inset: -14%;
+    inset: 0;
     pointer-events: none;
     z-index: -1;
     background: radial-gradient(
@@ -804,8 +806,17 @@ body[data-page="home"]::after {
         rgba(var(--accent-rgb), 0.07) 26%,
         transparent 62%
     );
-    opacity: 0.72;
+    opacity: 0.36;
     transition: opacity 0.24s ease;
+    will-change: opacity;
+}
+
+body[data-page="home"].is-pointer-active::after {
+    opacity: 0.74;
+}
+
+body[data-page="home"].is-pointer-active.is-pointer-on-control::after {
+    opacity: 0.92;
 }
 
 body[data-page="home"] .home-fx {
@@ -1002,6 +1013,8 @@ body[data-page="home"] .life-card,
 body[data-page="home"] .widget,
 body[data-page="home"] .contact-icon-link {
     position: relative;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 body[data-page="home"] .gallery-item::after,
@@ -1014,8 +1027,8 @@ body[data-page="home"] .contact-icon-link::after {
     border-radius: inherit;
     pointer-events: none;
     background: radial-gradient(
-        14rem circle at var(--pointer-x) var(--pointer-y),
-        rgba(var(--accent-rgb), 0.14),
+        15rem circle at var(--hover-x) var(--hover-y),
+        rgba(var(--accent-rgb), 0.2),
         transparent 65%
     );
     opacity: 0;
@@ -1026,6 +1039,43 @@ body[data-page="home"] .gallery-item:hover::after,
 body[data-page="home"] .life-card:hover::after,
 body[data-page="home"] .widget:hover::after,
 body[data-page="home"] .contact-icon-link:hover::after {
+    opacity: 1;
+}
+
+body[data-page="home"] .stat-chip,
+body[data-page="home"] .badge,
+body[data-page="home"] .glow-btn,
+body[data-page="home"] .ghost-btn,
+body[data-page="home"] .icon-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+body[data-page="home"] .stat-chip::before,
+body[data-page="home"] .badge::before,
+body[data-page="home"] .glow-btn::before,
+body[data-page="home"] .ghost-btn::before,
+body[data-page="home"] .icon-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+        8rem circle at var(--hover-x) var(--hover-y),
+        rgba(var(--accent-rgb), 0.28),
+        transparent 62%
+    );
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+body[data-page="home"] .stat-chip:hover::before,
+body[data-page="home"] .badge:hover::before,
+body[data-page="home"] .glow-btn:hover::before,
+body[data-page="home"] .ghost-btn:hover::before,
+body[data-page="home"] .icon-btn:hover::before {
     opacity: 1;
 }
 

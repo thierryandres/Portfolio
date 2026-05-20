@@ -29,6 +29,7 @@
         initHomeEntrance();
         initScrollProgress();
         initHeaderScrollState();
+        initPointerGlow();
         setFooterYear();
     });
 
@@ -757,6 +758,98 @@
         window.addEventListener("scroll", requestSync, { passive: true });
         window.addEventListener("resize", requestSync, { passive: true });
         syncHeaderState();
+    }
+
+    function initPointerGlow() {
+        if (!isHomePage() || reduceMotion || !window.matchMedia("(pointer: fine)").matches) {
+            return;
+        }
+
+        const root = document.documentElement;
+        const body = document.body;
+        const hoverTargets = document.querySelectorAll(
+            ".gallery-item, .life-card, .widget, .contact-icon-link, .stat-chip, .badge, .glow-btn, .ghost-btn, .icon-btn"
+        );
+
+        let pointerX = window.innerWidth / 2;
+        let pointerY = window.innerHeight / 2;
+        let ticking = false;
+
+        const clamp = (value) => Math.max(0, Math.min(100, value));
+
+        const syncPointer = () => {
+            root.style.setProperty("--pointer-x", `${pointerX}px`);
+            root.style.setProperty("--pointer-y", `${pointerY}px`);
+            body.classList.add("is-pointer-active");
+            ticking = false;
+        };
+
+        const requestPointerSync = (event) => {
+            if (event.pointerType === "touch") {
+                return;
+            }
+
+            pointerX = event.clientX;
+            pointerY = event.clientY;
+
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(syncPointer);
+            }
+        };
+
+        const syncHoverPosition = (target, event) => {
+            const rect = target.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) {
+                return;
+            }
+
+            const x = clamp(((event.clientX - rect.left) / rect.width) * 100);
+            const y = clamp(((event.clientY - rect.top) / rect.height) * 100);
+
+            target.style.setProperty("--hover-x", `${x.toFixed(2)}%`);
+            target.style.setProperty("--hover-y", `${y.toFixed(2)}%`);
+        };
+
+        window.addEventListener("pointermove", requestPointerSync, { passive: true });
+        window.addEventListener("pointerleave", () => {
+            body.classList.remove("is-pointer-active", "is-pointer-on-control");
+        });
+
+        hoverTargets.forEach((target) => {
+            if (!(target instanceof HTMLElement)) {
+                return;
+            }
+
+            target.addEventListener(
+                "pointerenter",
+                (event) => {
+                    if (event.pointerType === "touch") {
+                        return;
+                    }
+                    body.classList.add("is-pointer-on-control");
+                    syncHoverPosition(target, event);
+                },
+                { passive: true }
+            );
+
+            target.addEventListener(
+                "pointermove",
+                (event) => {
+                    if (event.pointerType === "touch") {
+                        return;
+                    }
+                    syncHoverPosition(target, event);
+                },
+                { passive: true }
+            );
+
+            target.addEventListener("pointerleave", () => {
+                body.classList.remove("is-pointer-on-control");
+            });
+        });
+
+        syncPointer();
     }
 
     function setFooterYear() {
