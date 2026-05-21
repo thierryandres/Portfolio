@@ -397,10 +397,6 @@
         const buttons = Array.from(document.querySelectorAll("[data-mood-btn]"));
         const validMoods = new Set(["cyan", "lime", "sunset"]);
 
-        if (!buttons.length) {
-            return;
-        }
-
         const readStoredMood = () => {
             try {
                 return localStorage.getItem(ACCENT_KEY);
@@ -420,6 +416,10 @@
         const savedMood = readStoredMood();
         const defaultMood = validMoods.has(savedMood || "") ? savedMood : root.dataset.accent || "cyan";
         applyMood(defaultMood);
+
+        if (!buttons.length) {
+            return;
+        }
 
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
