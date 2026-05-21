@@ -1274,6 +1274,14 @@ body[data-page="home"] .hero__stats .stat-chip:hover {
     }
 }
 
+@media (max-width: 719px) {
+    /* Auf kleinen Bildschirmen das Titel-/Portraitbild sichtbar vergrössern
+       damit es mit den Textspalten besser harmoniert */
+    .hero__portrait img {
+        min-height: 420px;
+    }
+}
+
 @media (min-width: 720px) {
     .hero {
         gap: 1rem;
