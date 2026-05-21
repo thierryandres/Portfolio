@@ -422,7 +422,11 @@ h2 {
 .hero__stats {
     display: grid;
     gap: 0.6rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+}
+
+.hero__stats--desktop {
+    display: none;
 }
 
 .stat-chip {
@@ -1250,6 +1254,18 @@ body[data-page="home"] .hero__stats .stat-chip:hover {
     .hero__grid {
         grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
         align-items: stretch;
+    }
+
+    .hero__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero__stats--desktop {
+        display: grid;
+    }
+
+    .hero__stats--mobile {
+        display: none;
     }
 
     .life-grid,
