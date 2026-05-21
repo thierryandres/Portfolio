@@ -449,7 +449,7 @@ h2 {
 .hero__stats {
     display: grid;
     gap: 0.6rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     margin-top: 0;
 }
 
