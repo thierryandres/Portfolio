@@ -3,51 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hobbys</title>
+    <meta name="description" content="Hobbys von Thierry Andres: Motorradfahren, Tennis und Klettern.">
+    <title>Hobbys – Thierry Andres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="nav-container">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">TA</span>
+                <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
+            </a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation öffnen</span>
+            </button>
+            <nav class="main-nav" id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="ueber_mich.html">Über mich</a></li>
+                    <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                    <li><a href="diplome.html">Diplome</a></li>
+                    <li><a href="hobbys.html" aria-current="page">Hobbys</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<main>
-    <h1>Hobbys</h1>
-    <ul>
-        <li>🏍 Motorradfahren</li>
-        <li>Die Freiheit der Strasse und die Faszination für Technik machen jede Tour für mich zum Erlebnis.</li>
-        <li>🎾 Tennis</li>
-        <li>Ein dynamischer Sport, der Technik, Taktik und Ausdauer fordert – perfekt, um mich herauszufordern.</li>
-        <li>🧗‍♂️ Klettern</li>
-        <li>Kraft, Präzision und Strategie – beim Klettern reizt mich die Herausforderung, neue Höhen zu erreichen.</li>
-    </ul>
-    <img src="img/Klettern.JPEG" alt="Klettern in Cassis" width="400" height="300">
-</main>
+    <main>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Ausgleich</span>
+                <h1 class="section-title">Was mich ausserhalb der Arbeit inspiriert</h1>
+                <p class="section-description">Sport und Abenteuer geben mir neue Energie und Ideen für den Alltag. Jede Freizeitaktivität bringt mich auf eine andere Art weiter.</p>
+            </div>
+            <div class="hobby-grid">
+                <article class="hobby-card">
+                    <span>🏍️</span>
+                    <h2>Motorradfahren</h2>
+                    <p>Freiheit spüren, Technik verstehen und Verantwortung übernehmen – jede Tour verbindet Konzentration mit Spass.</p>
+                </article>
+                <article class="hobby-card">
+                    <span>🎾</span>
+                    <h2>Tennis</h2>
+                    <p>Taktik, Ausdauer und Präzision. Auf dem Platz lerne ich, schnell zu reagieren und fair zu bleiben.</p>
+                </article>
+                <article class="hobby-card">
+                    <span>🧗‍♂️</span>
+                    <h2>Klettern</h2>
+                    <p>Kraft und Köpfchen sind gefragt: Jede Route ist ein kleines Projekt mit Planung, Mut und Fokus.</p>
+                </article>
+            </div>
+        </section>
 
-<footer>
-    <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Momentaufnahme</span>
+                <h2 class="section-title">Unterwegs an der Felswand</h2>
+                <p class="section-description">Klettern in Cassis – ein Highlight, das zeigt, wie sehr mich Bewegung und Natur motivieren.</p>
+            </div>
+            <img src="img/Klettern.JPEG" alt="Thierry Andres beim Klettern in Cassis">
+        </section>
+    </main>
 
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+    <footer>
+        <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>

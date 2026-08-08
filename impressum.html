@@ -3,51 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
+    <meta name="description" content="Impressum von Thierry Andres mit Kontakt- und Quellenangaben.">
+    <title>Impressum – Thierry Andres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
+    <header class="site-header">
+        <div class="nav-container">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">TA</span>
+                <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
+            </a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation öffnen</span>
+            </button>
+            <nav class="main-nav" id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="ueber_mich.html">Über mich</a></li>
+                    <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+                    <li><a href="diplome.html">Diplome</a></li>
+                    <li><a href="hobbys.html">Hobbys</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="impressum.html" aria-current="page">Impressum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Rechtliches</span>
+                <h1 class="section-title">Impressum &amp; Quellen</h1>
+                <p class="section-description">Alle Inhalte dieser Seite wurden von mir erstellt. Externe Quellen sind transparent aufgeführt.</p>
+            </div>
+            <ul class="impressum-list">
+                <li><strong>Verantwortlich für den Inhalt:</strong> Thierry Andres, Roggwil BE (Schweiz)</li>
+                <li><strong>E-Mail:</strong> <a href="mailto:thierry.andres@quickline.ch">thierry.andres@quickline.ch</a></li>
+                <li><strong>Urheberrecht:</strong> Texte und Bilder sind Eigenwerk, sofern nicht anders angegeben.</li>
+                <li><strong>Bildquellen Logos:</strong>
+                    <a href="https://pt.vecteezy.com/png-gratis/instagram-logo" target="_blank" rel="noopener">Instagram</a>,
+                    <a href="https://www.vhv.rs/viewpic/TibRbJm_round-facebook-logo-transparent-hd-png-download/H" target="_blank" rel="noopener">Facebook</a>,
+                    <a href="https://pt.vecteezy.com/png-gratis/linkedin" target="_blank" rel="noopener">LinkedIn</a>
+                </li>
+                <li><strong>Emoji-Quelle:</strong> <a href="https://emojikopieren.de/" target="_blank" rel="noopener">emojikopieren.de</a></li>
             </ul>
-        </nav>
-    </div>
-</header>
+        </section>
+    </main>
 
-<main>
-    <h1>Impressum</h1>
-    <p>Thierry Andres</p>
-    <p>Roggwil BE, Schweiz</p>
-    <p>Email: <a href="mailto:thierry.andres@quickline.ch">thierry.andres@quickline.ch</a></p>
-    <p>Text Eigenwerk</p>
-    <p>Bilder sind Eigenwerk ausser:</p>
-    <a href="https://pt.vecteezy.com/png-gratis/instagram-logo">Instagram</a>
-    <a href="https://www.vhv.rs/viewpic/TibRbJm_round-facebook-logo-transparent-hd-png-download/H">Facebook</a>
-    <a href="https://pt.vecteezy.com/png-gratis/linkedin">LinkedIn</a>
-    <a href="https://emojikopieren.de/">Emojis</a>
-</main>
-
-<footer>
-    <p>©2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+    <footer>
+        <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>

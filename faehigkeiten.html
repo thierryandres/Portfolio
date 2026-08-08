@@ -3,65 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fähigkeiten</title>
+    <meta name="description" content="Fähigkeiten von Thierry Andres – Technik, Sprachen und Soft Skills im Überblick.">
+    <title>Fähigkeiten – Thierry Andres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-    <div class="nav-container">
-        <button class="burger">☰</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="ueber_mich.html">Über mich</a></li>
-                <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-                <li><a href="diplome.html">Diplome</a></li>
-                <li><a href="hobbys.html">Hobbys</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="impressum.html">Impressum</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="nav-container">
+            <a class="brand" href="index.html">
+                <span class="brand-mark">TA</span>
+                <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
+            </a>
+            <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="sr-only">Navigation öffnen</span>
+            </button>
+            <nav class="main-nav" id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="ueber_mich.html">Über mich</a></li>
+                    <li><a href="faehigkeiten.html" aria-current="page">Fähigkeiten</a></li>
+                    <li><a href="diplome.html">Diplome</a></li>
+                    <li><a href="hobbys.html">Hobbys</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<main>
-    <h1>Fähigkeiten</h1>
+    <main>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">Skills</span>
+                <h1 class="section-title">Womit ich Projekte voranbringe</h1>
+                <p class="section-description">Ich kombiniere technisches Verständnis mit sauberer Kommunikation und einem Auge fürs Detail. Die wichtigsten Kompetenzen sind nach Bereichen geordnet.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <h2>Technische Fähigkeiten</h2>
+                    <ul class="list">
+                        <li>HTML &amp; CSS – strukturierte und responsive Webseiten</li>
+                        <li>Java – objektorientiertes Denken und saubere Code-Struktur</li>
+                        <li>Python – Skripting und Automatisierungsideen</li>
+                        <li>SQL – Daten modellieren und abfragen</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h2>Sprachkenntnisse</h2>
+                    <ul class="list">
+                        <li>Deutsch – Muttersprache</li>
+                        <li>Englisch – gute Kenntnisse in Wort und Schrift</li>
+                        <li>Französisch – solide Grundkenntnisse</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h2>Arbeits- &amp; Soft Skills</h2>
+                    <ul class="list">
+                        <li>Teamarbeit – gemeinsam Lösungen finden und Wissen teilen</li>
+                        <li>Kreativität – Ideen visualisieren und ausprobieren</li>
+                        <li>Lernbereitschaft – neue Tools und Frameworks aktiv einarbeiten</li>
+                        <li>Struktur – Aufgaben priorisieren und sauber dokumentieren</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
 
-    <h2>Technische Fähigkeiten</h2>
-    <ul>
-        <li>HTML – Erstellen von strukturierten Webseiten</li>
-        <li>CSS – Styling und Design von Webseiten</li>
-        <li>SQL – Grundkenntnisse in Datenbankabfragen</li>
-        <li>Java – Grundkenntnisse in objektorientierter Programmierung</li>
-        <li>Python – Grundkenntnisse in Skriptsprachen</li>
-    </ul>
+        <section class="section">
+            <div class="section-header">
+                <span class="section-eyebrow">So arbeite ich</span>
+                <h2 class="section-title">Qualitätsschritte im Projekt</h2>
+                <p class="section-description">Von der ersten Idee bis zum Testen orientiere ich mich an klaren Schritten. Das sorgt für nachvollziehbare Resultate und zufriedene Nutzer.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <h2>Verstehen</h2>
+                    <p>Bedürfnisse aufnehmen, Use-Cases ausarbeiten und das Zielbild mit dem Kunden abstimmen.</p>
+                </article>
+                <article class="card">
+                    <h2>Konzipieren</h2>
+                    <p>Skizzen, Wireframes und User Flows erstellen, um das Erlebnis visuell zu planen.</p>
+                </article>
+                <article class="card">
+                    <h2>Umsetzen &amp; Testen</h2>
+                    <p>Sauberen Code schreiben, dokumentieren und gemeinsam testen, bis alles funktioniert.</p>
+                </article>
+            </div>
+        </section>
+    </main>
 
-    <h2>Sprachkenntnisse</h2>
-    <ul>
-        <li>Englisch – Gute Kenntnisse (Lesen, Schreiben, Sprechen)</li>
-        <li>Französisch – Grundkenntnisse</li>
-        <li>Deutsch – Muttersprache</li>
-    </ul>
-
-    <h2>Soft Skills</h2>
-    <ul>
-        <li>Teamarbeit</li>
-        <li>Kreativität - Entwicklung origineller Lösungen und Designs</li>
-        <li>Lernbereitschaft – Schnelle Aufnahme neuer Technologien</li>
-    </ul>
-</main>
-
-<footer>
-    <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-    });
-</script>
+    <footer>
+        <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>

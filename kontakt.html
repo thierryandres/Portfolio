@@ -3,76 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt</title>
+  <meta name="description" content="Kontaktiere Thierry Andres – Kontaktformular und direkte Kontaktmöglichkeiten.">
+  <title>Kontakt – Thierry Andres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-<header>
-  <div class="nav-container">
-    <button class="burger">☰</button>
-    <nav>
-      <ul>
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="ueber_mich.html">Über mich</a></li>
-        <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
-        <li><a href="diplome.html">Diplome</a></li>
-        <li><a href="hobbys.html">Hobbys</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li><a href="impressum.html">Impressum</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <h1>Kontakt 📬</h1>
-  <section class="contact-info">
-  </section>
-
-  <section class="contact-form">
-    <h2>Schreib mir eine Nachricht</h2>
-    <form action="https://formspree.io/f/xanqrqde" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Dein Name" required>
-
-      <label for="email">E-Mail:</label>
-      <input type="email" id="email" name="_replyto" placeholder="Deine E-Mail" required>
-
-      <label for="subject">Betreff:</label>
-      <input type="text" id="subject" name="_subject" placeholder="Betreff" required>
-
-      <label for="message">Nachricht:</label>
-      <textarea id="message" name="message" rows="6" placeholder="Deine Nachricht" required></textarea>
-
-      <button type="submit">Absenden</button>
-    </form>
-    <br>
-    <p>Folge mir auf:
-      <br>
-      <a href="https://www.instagram.com/thierry._.andres" target="_blank">
-        <img src="img/instagram-logo.png" alt="Instagram" class="social-icon">
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">TA</span>
+        <span class="brand-text"><span>Portfolio</span><span>Thierry Andres</span></span>
       </a>
-      <a href="https://www.facebook.com/share/14rtEwvfAL/?mibextid=wwXIfr" target="_blank">
-        <img src="img/facebook-logo.png" alt="Facebook" class="social-icon">
-      </a>
-      <a href="https://www.linkedin.com/in/thierry-andres-388aa9354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
-        <img src="img/linkedin-logo.png" alt="LinkedIn" class="social-icon">
-      </a>
-    </p>
-  </section>
-</main>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Navigation öffnen</span>
+      </button>
+      <nav class="main-nav" id="primary-navigation">
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="ueber_mich.html">Über mich</a></li>
+          <li><a href="faehigkeiten.html">Fähigkeiten</a></li>
+          <li><a href="diplome.html">Diplome</a></li>
+          <li><a href="hobbys.html">Hobbys</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<footer>
-  <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
-</footer>
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">Kontakt</span>
+        <h1 class="section-title">Ich freue mich über deine Nachricht</h1>
+        <p class="section-description">Ob Feedback, Projektidee oder eine Frage zu meiner Ausbildung – hier erreichst du mich am schnellsten.</p>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-card">
+          <h2>Direkter Kontakt</h2>
+          <ul>
+            <li><strong>E-Mail:</strong> <a href="mailto:thierry.andres@quickline.ch">thierry.andres@quickline.ch</a></li>
+            <li><strong>Standort:</strong> Roggwil BE, Schweiz</li>
+            <li><strong>Erreichbarkeit:</strong> Werktags nach der Schule sowie am Wochenende</li>
+          </ul>
+          <div class="social-links">
+            <a href="https://www.instagram.com/thierry._.andres" target="_blank" rel="noopener" aria-label="Instagram">
+              <img src="img/instagram-logo.png" alt="Instagram Logo">
+            </a>
+            <a href="https://www.facebook.com/share/14rtEwvfAL/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+              <img src="img/facebook-logo.png" alt="Facebook Logo">
+            </a>
+            <a href="https://www.linkedin.com/in/thierry-andres-388aa9354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img src="img/linkedin-logo.png" alt="LinkedIn Logo">
+            </a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h2>Schreib mir eine Nachricht</h2>
+          <form action="https://formspree.io/f/xanqrqde" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Dein Name" required>
 
-<script>
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('nav ul');
-  burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.textContent = nav.classList.contains('active') ? '✖' : '☰';
-  });
-</script>
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="_replyto" placeholder="Deine E-Mail" required>
+
+            <label for="subject">Betreff</label>
+            <input type="text" id="subject" name="_subject" placeholder="Betreff" required>
+
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" rows="6" placeholder="Deine Nachricht" required></textarea>
+
+            <button class="btn btn-primary" type="submit">Absenden</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Thierry Andres. Alle Rechte vorbehalten.</p>
+  </footer>
 </body>
 </html>
